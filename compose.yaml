@@ -1,1 +1,16 @@
-service:
+services:
+  identity:
+    build: ./identity
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - action: sync
+          path: ./identity
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./identity/package.json
+        - action: rebuild
+          path: ./identity/Dockerfile
