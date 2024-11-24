@@ -9,12 +9,13 @@ db.execute("SELECT 1").catch((err) => {
 });
 
 // Run migrations
-migrate(db, { migrationsFolder: "./drizzle" }).then(
-  () => {
-    console.log("Migrations complete");
-  },
-  (err) => {
-    console.error(err);
-    process.exit(1);
-  }
-);
+export const runMigration = () =>
+  migrate(db, { migrationsFolder: "./drizzle" }).then(
+    () => {
+      console.log("Migrations complete");
+    },
+    (err) => {
+      console.error(err);
+      process.exit(1);
+    }
+  );
