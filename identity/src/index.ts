@@ -1,13 +1,16 @@
 import express, { Express } from "express";
-import { db, runMigration } from "./db/connection";
+import morgan from "morgan";
 import argon2 from "argon2";
-import { accountTable, profileTable } from "./db/schema";
 import { eq } from "drizzle-orm";
+
+import { db, runMigration } from "./db/connection";
+import { accountTable, profileTable } from "./db/schema";
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(morgan("dev"));
 
 runMigration();
 
