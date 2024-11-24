@@ -8,4 +8,6 @@ RUN npm install
 
 COPY --chown=node:node . /app
 
+RUN npm run generate-schema 
+
 CMD ["npm","run", "dev"]

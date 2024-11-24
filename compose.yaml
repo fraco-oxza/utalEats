@@ -1,6 +1,7 @@
 services:
   identity:
     build: ./identity
+    restart: always
     ports:
       - "3000:3000"
     develop:
@@ -14,6 +15,8 @@ services:
           path: ./identity/package.json
         - action: rebuild
           path: ./identity/Dockerfile
+    environment:
+      DATABASE_URL: postgres://identity:identity@identity-db:5432/identity
     depends_on:
       identity-db:
         condition: service_healthy
