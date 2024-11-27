@@ -36,6 +36,20 @@ services:
       start_period: 30s
       timeout: 10s
 
+  stores-db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: stores
+      MONGO_INITDB_ROOT_USERNAME: stores
+      MONGO_INITDB_ROOT_PASSWORD: stores
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
   reverse-proxy:
     build: ./reverse-proxy
     ports:
