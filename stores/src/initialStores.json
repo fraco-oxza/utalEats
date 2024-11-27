@@ -1,0 +1,172 @@
+[
+  {
+    "storeId": 1,
+    "cityName": "New York",
+    "storeName": "Pollo Bravo",
+    "category": "Restaurant",
+    "image": "notimplemented",
+    "products": [
+      {
+        "dishName": "Pollo a la brasa",
+        "image": "notimplemented",
+        "price": 10.99
+      },
+      {
+        "dishName": "Papas fritas",
+        "image": "notimplemented",
+        "price": 2.99
+      },
+      {
+        "dishName": "Chicha morada",
+        "image": "notimplemented",
+        "price": 3.99
+      },
+      {
+        "dishName": "Inca Kola",
+        "image": "notimplemented",
+        "price": 2.99
+      },
+      {
+        "dishName": "Arroz con Leche",
+        "image": "notimplemented",
+        "price": 4.99
+      }
+    ]
+  },
+  {
+    "storeId": 2,
+    "cityName": "Los Angeles",
+    "storeName": "Tacos El Gordo",
+    "category": "Restaurant",
+    "image": "notimplemented",
+    "products": [
+      {
+        "dishName": "Tacos al Pastor",
+        "image": "notimplemented",
+        "price": 2.99
+      },
+      {
+        "dishName": "Tacos de Carne Asada",
+        "image": "notimplemented",
+        "price": 3.49
+      },
+      {
+        "dishName": "Quesadilla",
+        "image": "notimplemented",
+        "price": 5.99
+      },
+      {
+        "dishName": "Horchata",
+        "image": "notimplemented",
+        "price": 2.49
+      },
+      {
+        "dishName": "Guacamole y Chips",
+        "image": "notimplemented",
+        "price": 4.99
+      }
+    ]
+  },
+  {
+    "storeId": 3,
+    "cityName": "Chicago",
+    "storeName": "Pizza Heaven",
+    "category": "Restaurant",
+    "image": "notimplemented",
+    "products": [
+      {
+        "dishName": "Pepperoni Pizza",
+        "image": "notimplemented",
+        "price": 12.99
+      },
+      {
+        "dishName": "Cheese Pizza",
+        "image": "notimplemented",
+        "price": 10.99
+      },
+      {
+        "dishName": "Garlic Knots",
+        "image": "notimplemented",
+        "price": 4.99
+      },
+      {
+        "dishName": "Soda",
+        "image": "notimplemented",
+        "price": 1.99
+      },
+      {
+        "dishName": "Chicken Wings",
+        "image": "notimplemented",
+        "price": 8.99
+      }
+    ]
+  },
+  {
+    "storeId": 4,
+    "cityName": "Miami",
+    "storeName": "Burger Joint",
+    "category": "Restaurant",
+    "image": "notimplemented",
+    "products": [
+      {
+        "dishName": "Classic Burger",
+        "image": "notimplemented",
+        "price": 7.99
+      },
+      {
+        "dishName": "Cheeseburger",
+        "image": "notimplemented",
+        "price": 8.99
+      },
+      {
+        "dishName": "French Fries",
+        "image": "notimplemented",
+        "price": 2.99
+      },
+      {
+        "dishName": "Milkshake",
+        "image": "notimplemented",
+        "price": 4.99
+      },
+      {
+        "dishName": "Onion Rings",
+        "image": "notimplemented",
+        "price": 3.99
+      }
+    ]
+  },
+  {
+    "storeId": 5,
+    "cityName": "Houston",
+    "storeName": "Sushi House",
+    "category": "Restaurant",
+    "image": "notimplemented",
+    "products": [
+      {
+        "dishName": "California Roll",
+        "image": "notimplemented",
+        "price": 6.99
+      },
+      {
+        "dishName": "Spicy Tuna Roll",
+        "image": "notimplemented",
+        "price": 8.99
+      },
+      {
+        "dishName": "Miso Soup",
+        "image": "notimplemented",
+        "price": 2.49
+      },
+      {
+        "dishName": "Edamame",
+        "image": "notimplemented",
+        "price": 4.99
+      },
+      {
+        "dishName": "Green Tea",
+        "image": "notimplemented",
+        "price": 1.99
+      }
+    ]
+  }
+]
