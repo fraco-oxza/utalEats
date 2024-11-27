@@ -15,6 +15,16 @@ app.use(morgan("dev"));
 runMigration();
 
 app.post("/account/register", async (req, res) => {
+  if (
+    !req.body.email ||
+    !req.body.password ||
+    !req.body.name ||
+    !req.body.phone
+  ) {
+    res.status(400).send("email, password, name, and phone are required");
+    return;
+  }
+
   const body: {
     email: string;
     password: string;
@@ -45,6 +55,11 @@ app.post("/account/register", async (req, res) => {
 });
 
 app.post("/account/login", async (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    res.status(400).send("email and password are required");
+    return;
+  }
+
   const body: {
     email: string;
     password: string;
@@ -57,6 +72,7 @@ app.post("/account/login", async (req, res) => {
 
   if (account.length === 0) {
     res.send({});
+    return;
   }
 
   if (await argon2.verify(account[0].passwordHash, body.password)) {
@@ -68,14 +84,36 @@ app.post("/account/login", async (req, res) => {
 });
 
 app.get("/profile", async (req, res) => {
-  const accountId = parseInt(req.query.accountId as string);
+  try {
+    if (!req.query.accountId) {
+      res.status(400).send("accountId is required");
+      return;
+    }
 
-  const profile = await db
-    .select()
-    .from(profileTable)
-    .where(eq(profileTable.accountId, accountId));
+    const accountIdString = req.query.accountId as string;
 
-  res.send(profile[0]);
+    if (!accountIdString.match(/^\d+$/)) {
+      res.status(400).send("accountId must be a number");
+      return;
+    }
+
+    const accountId = parseInt(accountIdString, 10);
+
+    const profile = await db
+      .select()
+      .from(profileTable)
+      .where(eq(profileTable.accountId, accountId));
+
+    if (profile.length === 0) {
+      res.status(404).send("Profile not found");
+      return;
+    }
+
+    res.send(profile[0]);
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+    console.error(error);
+  }
 });
 
 app.listen(port, () => {
