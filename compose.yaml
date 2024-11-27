@@ -76,6 +76,7 @@ services:
       - "80:80"
     depends_on:
       - identity
+      - stores
     develop:
       watch:
         - action: sync+restart
