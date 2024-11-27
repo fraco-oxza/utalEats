@@ -47,5 +47,21 @@ services:
         - action: sync+restart
           path: reverse-proxy/nginx.conf
           target: /etc/nginx/nginx.conf
+  web-app:
+    build: ./web-app
+    restart: always
+    ports:
+      - "8080:80"
+    develop:
+      watch:
+        - action: rebuild
+          path: ./web-app
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./web-app/package.json
+        - action: rebuild
+          path: ./web-app/Dockerfile
 volumes:
   identity-db-data:
