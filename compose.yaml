@@ -36,15 +36,35 @@ services:
       start_period: 30s
       timeout: 10s
 
+  stores:
+    build: ./stores
+    restart: always
+    develop:
+      watch:
+        - action: sync
+          path: ./stores
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./stores/package.json
+        - action: rebuild
+          path: ./stores/Dockerfile
+    environment:
+      DATABASE_URL: mongodb://stores:stores@stores-db:27017
+    depends_on:
+      stores-db:
+        condition: service_healthy
+        restart: true
+
   stores-db:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_DATABASE: stores
       MONGO_INITDB_ROOT_USERNAME: stores
       MONGO_INITDB_ROOT_PASSWORD: stores
     healthcheck:
-      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
       interval: 10s
       retries: 5
       start_period: 30s
