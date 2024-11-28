@@ -86,10 +86,10 @@ services:
     build: ./web-app
     restart: always
     ports:
-      - "8080:80"
+      - "4321:4321"
     develop:
       watch:
-        - action: rebuild
+        - action: sync
           path: ./web-app
           target: /app
           ignore:

@@ -1,9 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Logo from '../components/Logo.astro';
+import City from '../components/City.astro';
+const city = 'Talca';
 ---
 
 <Layout title="UtalEats">
 	<main>
-		<h1>UtalEats</h1>
+		<Logo></Logo>
+		<City title = {city}></City>
 	</main>
 </Layout>
