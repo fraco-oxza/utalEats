@@ -2,7 +2,7 @@ import express, { Express } from "express";
 import morgan from "morgan";
 import argon2 from "argon2";
 import { eq } from "drizzle-orm";
-import { cors } from "cors";
+import cors from "cors";
 
 import { db, runMigration } from "./db/connection";
 import { accountTable, profileTable } from "./db/schema";
