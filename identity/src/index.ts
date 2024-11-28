@@ -21,9 +21,13 @@ app.post("/account/register", async (req, res) => {
     !req.body.email ||
     !req.body.password ||
     !req.body.name ||
-    !req.body.phone
+    !req.body.phone ||
+    !req.body.address ||
+    !req.body.city
   ) {
-    res.status(400).send("email, password, name, and phone are required");
+    res
+      .status(400)
+      .send("email, password, name, phone, address, and city are required");
     return;
   }
 
@@ -32,6 +36,8 @@ app.post("/account/register", async (req, res) => {
     password: string;
     name: string;
     phone: string;
+    address: string;
+    city: string;
   } = req.body;
 
   await db.insert(accountTable).values({
