@@ -1,0 +1,3 @@
+[submodule "utaleats-app"]
+	path = utaleats-app
+	url = https://github.com/vicetr3s/utaleats-app
