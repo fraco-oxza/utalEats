@@ -1,0 +1,27 @@
+---
+interface Props {
+    category: string;
+}
+
+const {category} = Astro.props;
+---
+
+<li>
+    <p>{category}</p>
+</li>
+<style>
+    li {
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 1% 2%;
+        margin-right: 45px;
+        text-decoration: none;
+        background-color: var(--secondary-clr);
+        border-radius: 30px;
+    }
+
+    li:hover {
+        background-color: var(--primary-clr);
+    }
+</style>
