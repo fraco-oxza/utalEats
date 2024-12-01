@@ -1,0 +1,25 @@
+---
+import Store from "./Store.astro";
+const stores = [1,2,3];
+---
+
+<ul>
+    {stores.map((store) => (
+        <Store
+        name='McDonalds';
+		category='Fast food';
+		stars = {5};
+		reviews = {10};
+		imagePath='../public/images/mcdonalds-logo.jpg';
+        ></Store>
+    ))}
+</ul>
+<style>
+    ul {
+        list-style-type: none;
+        margin-left: 0 auto;
+        align-items: center;
+        width: fit-content;
+        justify-content: center;
+    }
+</style>
