@@ -4,31 +4,31 @@
     "cityName": "New York",
     "storeName": "Pollo Bravo",
     "category": "Restaurant",
-    "image": "notimplemented",
+    "image": "/api/store/images/polloBravos.jpg",
     "products": [
       {
         "dishName": "Pollo a la brasa",
-        "image": "notimplemented",
+        "image": "/api/store/images/polloALaBrasa.jpg",
         "price": 10.99
       },
       {
         "dishName": "Papas fritas",
-        "image": "notimplemented",
+        "image": "/api/store/images/papaFritas.jpg",
         "price": 2.99
       },
       {
         "dishName": "Chicha morada",
-        "image": "notimplemented",
+        "image": "/api/store/images/chichaMorada.jpg",
         "price": 3.99
       },
       {
         "dishName": "Inca Kola",
-        "image": "notimplemented",
+        "image": "/api/store/images/incaKola",
         "price": 2.99
       },
       {
         "dishName": "Arroz con Leche",
-        "image": "notimplemented",
+        "image": "/api/store/images/arrozConLeche.jpg",
         "price": 4.99
       }
     ]
@@ -38,31 +38,31 @@
     "cityName": "Los Angeles",
     "storeName": "Tacos El Gordo",
     "category": "Restaurant",
-    "image": "notimplemented",
+    "image": "/api/store/images/tacosElGordo.png",
     "products": [
       {
         "dishName": "Tacos al Pastor",
-        "image": "notimplemented",
+        "image": "/api/store/images/tacosAlPastor.webp",
         "price": 2.99
       },
       {
         "dishName": "Tacos de Carne Asada",
-        "image": "notimplemented",
+        "image": "/api/store/images/tacosDeCarneAsada.jpg",
         "price": 3.49
       },
       {
         "dishName": "Quesadilla",
-        "image": "notimplemented",
+        "image": "/api/store/images/quesadillas.jpg",
         "price": 5.99
       },
       {
         "dishName": "Horchata",
-        "image": "notimplemented",
+        "image": "/api/store/images/horchata.jpg",
         "price": 2.49
       },
       {
         "dishName": "Guacamole y Chips",
-        "image": "notimplemented",
+        "image": "/api/store/images/guacamoleYChips.jpeg",
         "price": 4.99
       }
     ]
@@ -72,31 +72,31 @@
     "cityName": "Chicago",
     "storeName": "Pizza Heaven",
     "category": "Restaurant",
-    "image": "notimplemented",
+    "image": "/api/store/images/pizzaHeaven.png",
     "products": [
       {
         "dishName": "Pepperoni Pizza",
-        "image": "notimplemented",
+        "image": "/api/store/images/pizzaPeperoni.jpeg",
         "price": 12.99
       },
       {
         "dishName": "Cheese Pizza",
-        "image": "notimplemented",
+        "image": "/api/store/images/cheesePizza.webp",
         "price": 10.99
       },
       {
         "dishName": "Garlic Knots",
-        "image": "notimplemented",
+        "image": "/api/store/images/garlic-knots.jpg",
         "price": 4.99
       },
       {
         "dishName": "Soda",
-        "image": "notimplemented",
+        "image": "/api/store/images/soda.jpg",
         "price": 1.99
       },
       {
         "dishName": "Chicken Wings",
-        "image": "notimplemented",
+        "image": "/api/store/images/chickenWings.jpg",
         "price": 8.99
       }
     ]
@@ -106,31 +106,31 @@
     "cityName": "Miami",
     "storeName": "Burger Joint",
     "category": "Restaurant",
-    "image": "notimplemented",
+    "image": "/api/store/images/burgerJoint.webp",
     "products": [
       {
         "dishName": "Classic Burger",
-        "image": "notimplemented",
+        "image": "/api/store/images/classicBurger.jpg",
         "price": 7.99
       },
       {
         "dishName": "Cheeseburger",
-        "image": "notimplemented",
+        "image": "/api/store/images/Cheeseburger.jpg",
         "price": 8.99
       },
       {
         "dishName": "French Fries",
-        "image": "notimplemented",
+        "image": "/api/store/images/Crispy-Fries_8.webp",
         "price": 2.99
       },
       {
         "dishName": "Milkshake",
-        "image": "notimplemented",
+        "image": "/api/store/images/milshake.jpg",
         "price": 4.99
       },
       {
         "dishName": "Onion Rings",
-        "image": "notimplemented",
+        "image": "/api/store/images/onion-rings3.webp",
         "price": 3.99
       }
     ]
@@ -140,31 +140,31 @@
     "cityName": "Houston",
     "storeName": "Sushi House",
     "category": "Restaurant",
-    "image": "notimplemented",
+    "image": "/api/store/images",
     "products": [
       {
         "dishName": "California Roll",
-        "image": "notimplemented",
+        "image": "/api/store/images/suchi_house_logo.png",
         "price": 6.99
       },
       {
         "dishName": "Spicy Tuna Roll",
-        "image": "notimplemented",
+        "image": "/api/store/images/Spicy-Tuna-Roll-15.jpg",
         "price": 8.99
       },
       {
         "dishName": "Miso Soup",
-        "image": "notimplemented",
+        "image": "/api/store/images/miso-soup.jpg",
         "price": 2.49
       },
       {
         "dishName": "Edamame",
-        "image": "notimplemented",
+        "image": "/api/store/images/edamame.webp",
         "price": 4.99
       },
       {
         "dishName": "Green Tea",
-        "image": "notimplemented",
+        "image": "/api/store/images/greenTee.jpg",
         "price": 1.99
       }
     ]
