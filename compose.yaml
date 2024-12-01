@@ -81,6 +81,43 @@ services:
       start_period: 30s
       timeout: 10s
 
+  rating:
+    build: ./rating
+    restart: always
+    develop:
+      watch:
+        - action: sync
+          path: ./rating
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./rating/package.json
+        - action: rebuild
+          path: ./rating/Dockerfile
+    environment:
+      DATABASE_URL: postgres://rating:rating@rating-db:5432/rating
+    depends_on:
+      rating-db:
+        condition: service_healthy
+        restart: true
+
+  rating-db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_DB: rating
+      POSTGRES_USER: rating
+      POSTGRES_PASSWORD: rating
+    volumes:
+      - rating-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rating -d rating"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
   reverse-proxy:
     build: ./reverse-proxy
     ports:
@@ -112,3 +149,4 @@ services:
           path: ./web-app/Dockerfile
 volumes:
   identity-db-data:
+  rating-db-data:
