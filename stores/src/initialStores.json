@@ -4,7 +4,7 @@
     "cityName": "New York",
     "storeName": "Pollo Bravo",
     "category": "Restaurant",
-    "image": "/api/store/images/polloBravos.jpg",
+    "image": "/api/store/images/polloBravos.jpeg",
     "products": [
       {
         "dishName": "Pollo a la brasa",
@@ -23,7 +23,7 @@
       },
       {
         "dishName": "Inca Kola",
-        "image": "/api/store/images/incaKola",
+        "image": "/api/store/images/incaKola.webp",
         "price": 2.99
       },
       {
