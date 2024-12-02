@@ -62,6 +62,7 @@ app.get("/store", async (req, res) => {
     storeName: store.storeName,
     imagePath: store.image,
     category: store.category,
+    cityName: store.cityName,
   }));
 
   res.json(response);
