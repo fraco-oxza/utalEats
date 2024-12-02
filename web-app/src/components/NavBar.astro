@@ -4,8 +4,12 @@ import Logo from "./Logo.astro";
 import Profile from "./Profile.astro";
 import Home from "./Home.astro";
 
-//Get the profile from the api
-const city = 'Talca'
+/*const url = 'http://identity:3000/profile/?accountId=' + 1;
+const response = await fetch(url);
+if (!response.ok) throw new Error('Ups: ' + response.statusText);
+const data = response.json();
+*/
+export const city = 'New York';
 ---
 
 <ul class="nav-bar">

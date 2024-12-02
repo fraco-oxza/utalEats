@@ -60,6 +60,7 @@ app.get("/store", async (req, res) => {
   const response = stores.map((store) => ({
     storeId: store.storeId,
     storeName: store.storeName,
+    imagePath: store.image,
   }));
 
   res.json(response);

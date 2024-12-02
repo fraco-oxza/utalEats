@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import NavBar from '../components/NavBar.astro';
+import NavBar, { city } from '../components/NavBar.astro';
 import Categories from '../components/Categories.astro';
 import Stores from '../components/Stores.astro';
 ---
@@ -13,7 +13,7 @@ import Stores from '../components/Stores.astro';
 			<Categories></Categories>
 			<h1>Stores</h1>
 		</div>
-		<Stores></Stores>
+		<Stores city={city}></Stores>
 	</main>
 	<style>
 		main div {

@@ -87,6 +87,8 @@ services:
     restart: always
     ports:
       - "4321:4321"
+    depends_on:
+      - stores
     develop:
       watch:
         - action: sync

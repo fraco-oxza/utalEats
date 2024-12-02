@@ -12,7 +12,7 @@ const {name, category, stars, reviews, imagePath} = Astro.props;
 ---
 
 <li>
-    <div class="store">
+    <a href="store" class="store">
         <img src={imagePath}></img>
         <p class="name">{name}</p>
         <p class="category">{category}</p>
@@ -29,7 +29,7 @@ const {name, category, stars, reviews, imagePath} = Astro.props;
             <p>{stars}</p>
         </div>
         <p class="reviews">{reviews} reviews</p>
-    </div>
+    </a>
 </li>
 <style>
     li {
@@ -37,11 +37,16 @@ const {name, category, stars, reviews, imagePath} = Astro.props;
         padding: 30px 1%;
     }
 
+    li a {
+        color: black;
+    }
+
     .store {
         border-style: solid;
         border-color: black;
         border-radius: 20%;
-        width: fit-content;
+        width: 15vw;
+        height: 30vh;
         align-items: center;
         padding: 2vh 3vw;
         display: block;
@@ -50,14 +55,20 @@ const {name, category, stars, reviews, imagePath} = Astro.props;
         background-color: var(--background-clr);
     }
 
-    li div img {
+    li a img {
         width: 5vw;
         border-radius: 50%;
+    }
+
+    .stars svg {
+        width: 20px;
+        margin-right: 1vh;
     }
 
     .stars {
         display: flex;
         float: left;
+        align-items: center;
     }
 
     .name {
@@ -67,7 +78,7 @@ const {name, category, stars, reviews, imagePath} = Astro.props;
 
     .category { 
         font-size: 16px;
-        margin-bottom: 3vh;
+        margin-bottom: 4vh;
     }
 
     .reviews {
