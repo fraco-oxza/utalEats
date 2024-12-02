@@ -1,0 +1,28 @@
+---
+import City from "./City.astro";
+import Logo from "./Logo.astro";
+import Profile from "./Profile.astro";
+import Home from "./Home.astro";
+
+/*const url = 'http://identity:3000/profile/?accountId=' + 1;
+const response = await fetch(url);
+if (!response.ok) throw new Error('Ups: ' + response.statusText);
+const data = response.json();
+*/
+export const city = 'New York';
+---
+
+<ul class="nav-bar">
+    <Logo></Logo>
+	<City title = {city}></City>
+    <Home></Home>
+    <Profile username="Benja"></Profile>
+</ul>
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+</style>

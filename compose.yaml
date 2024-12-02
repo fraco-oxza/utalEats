@@ -135,10 +135,12 @@ services:
     build: ./web-app
     restart: always
     ports:
-      - "8080:80"
+      - "4321:4321"
+    depends_on:
+      - stores
     develop:
       watch:
-        - action: rebuild
+        - action: sync
           path: ./web-app
           target: /app
           ignore:

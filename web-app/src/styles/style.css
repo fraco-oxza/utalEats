@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 :root {
     --primary-clr: #F03E41;
     --secondary-clr: #FEBEC4;
@@ -12,9 +13,19 @@
     --base-lt-clr: #FBFBFB;
     --red-clr: #F03E41;
 }
-.body {
+
+*,*::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: var(--background-clr);
 }
-.h1 {
-    background-color: var(--primary-clr);
+
+html {
+    font-family: "Inter", sans-serif;
 }

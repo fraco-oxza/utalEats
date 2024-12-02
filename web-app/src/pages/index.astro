@@ -1,9 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import NavBar, { city } from '../components/NavBar.astro';
+import Categories from '../components/Categories.astro';
+import Stores from '../components/Stores.astro';
 ---
 
 <Layout title="UtalEats">
-	<main>
-		<h1>UtalEats</h1>
+	<main >
+		<div>
+			<NavBar></NavBar>
+			<h1>Categories</h1>
+			<Categories></Categories>
+			<h1>Stores</h1>
+		</div>
+		<Stores city={city}></Stores>
 	</main>
+	<style>
+		main div {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
+
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		h1 {
+			font-size: 28px;
+		}
+	</style>
 </Layout>
+<script>
+	let selected = '';
+    const categoryAll = document.getElementById('All');
+    if (categoryAll != null) {
+        categoryAll.style.backgroundColor = 'var(--primary-clr)';
+        categoryAll.style.color = 'var(--primary-fnt-clr)';
+        selected = categoryAll.id;
+    }
+
+    const categories = document.querySelectorAll<HTMLButtonElement>('[category-btn]');
+    categories.forEach((button) => {
+    button.addEventListener('click', () => {
+        const selectedButton = document.getElementById(selected);
+        if (selectedButton != null) {
+        selectedButton.style.backgroundColor = 'var(--secondary-clr)';
+        selectedButton.style.color = 'black';
+        }
+
+        button.style.backgroundColor = 'var(--primary-clr)';
+        button.style.color = 'var(--primary-fnt-clr)';
+        selected = button.id;
+    });
+  });
+</script>

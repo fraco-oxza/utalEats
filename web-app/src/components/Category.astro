@@ -1,0 +1,28 @@
+---
+interface Props {
+    category: string;
+}
+
+const {category} = Astro.props;
+---
+
+<li>
+    <button category-btn id={category}>{category}</button>
+</li>
+<style>
+    button {
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 1% 2%;
+        margin-right: 2%;
+        text-decoration: none;
+        background-color: var(--secondary-clr);
+        border-radius: 30px;
+        border-style: hidden;
+    }
+
+    button:hover {
+        opacity: 0.5;
+    }
+</style>

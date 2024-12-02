@@ -1,0 +1,31 @@
+---
+import Store from "./Store.astro";
+interface Props {
+    city: string;
+}
+const {city} = Astro.props;
+const url = 'http://stores:3000/store/?cityName=' + city;
+const response = await fetch(url);
+const stores = await response.json(); 
+---
+
+<ul>
+    {stores.map((store) => (
+        <Store
+        name={store.storeName};
+		category='Fast food';
+		stars = {5};
+		reviews = {10};
+		imagePath='../public/images/mcdonalds-logo.jpg';
+        ></Store>
+    ))}
+</ul>
+<style>
+    ul {
+        list-style-type: none;
+        margin-left: 0 auto;
+        align-items: center;
+        width: fit-content;
+        justify-content: center;
+    }
+</style>
