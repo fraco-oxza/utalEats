@@ -125,6 +125,8 @@ services:
     depends_on:
       - identity
       - stores
+      - rating
+      - order
     develop:
       watch:
         - action: sync+restart
@@ -147,6 +149,41 @@ services:
           path: ./web-app/package.json
         - action: rebuild
           path: ./web-app/Dockerfile
+
+  order:
+    build: ./order
+    restart: always
+    develop:
+      watch:
+        - action: sync
+          path: ./order
+          target: /app
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./order/package.json
+        - action: rebuild
+          path: ./order/Dockerfile
+    environment:
+      DATABASE_URL: mongodb://order:order@order-db:27017
+    depends_on:
+      order-db:
+        condition: service_healthy
+        restart: true
+
+  order-db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: order
+      MONGO_INITDB_ROOT_PASSWORD: order
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
 volumes:
   identity-db-data:
   rating-db-data:
