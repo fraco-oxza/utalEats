@@ -48,7 +48,12 @@ app.get("/", async (req, res) => {
     0.0
   );
 
-  res.json({ averageRating, comments: ratings.map((r) => r.comment) });
+  res.json({
+    averageRating,
+    comments: ratings.map((r) => {
+      return { score: r.score, comment: r.comment };
+    }),
+  });
 });
 
 app.listen(port, () => {
