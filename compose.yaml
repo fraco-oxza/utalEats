@@ -125,6 +125,8 @@ services:
     depends_on:
       - identity
       - stores
+      - rating
+      - order
     develop:
       watch:
         - action: sync+restart
@@ -151,8 +153,6 @@ services:
   order:
     build: ./order
     restart: always
-    ports:
-      - "3000:3000"
     develop:
       watch:
         - action: sync
