@@ -13,10 +13,10 @@ const stores = await response.json();
     {stores.map((store) => (
         <Store
         name={store.storeName};
-		category='Fast food';
+		category={store.category};
 		stars = {5};
-		reviews = {10};
-		imagePath='../public/images/mcdonalds-logo.jpg';
+		reviews = {100};
+		imagePath={store.imagePath};
         ></Store>
     ))}
 </ul>

@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LoginForm from "../components/LoginForm.astro";
+---
+
+<Layout title="UtalEats">
+    <main>
+        <div>
+            <div class="welcome">
+                <h1>Welcome to</h1>
+                <h1 class="logo">UtalEats</h1>
+            </div>
+            <h2>Your local shop delivery app</h2>
+        </div>
+        <LoginForm></LoginForm>
+    </main>
+</Layout>
+<style>
+    main {
+        display: flex;
+    }
+
+    .welcome {
+        display: flex;
+    }
+
+    .logo {
+        margin-left: 10px;
+        color: var(--accent-clr);
+    }
+</style>
