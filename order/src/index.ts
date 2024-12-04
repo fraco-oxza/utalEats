@@ -15,6 +15,7 @@ const OrderSchema = z.object({
     z.object({
       product: z.string(),
       quantity: z.number(),
+      price: z.number(),
     })
   ),
 });
