@@ -39,7 +39,7 @@ client
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.post("/", (req, res) => {
+app.post("/order", (req, res) => {
   let payload: typeof OrderSchema._type;
 
   try {
@@ -65,7 +65,7 @@ app.post("/", (req, res) => {
     });
 });
 
-app.get("/", (req, res) => {
+app.get("/order", (req, res) => {
   const accountId = req.query.accountId as string;
 
   const db = client.db("order");
