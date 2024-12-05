@@ -1,19 +1,61 @@
 <div>
     <h2>Log in</h2>
-    <form action="">
+    <form action="" id="loginForm">
         <label for="email">Email</label><br>
-        <input type="text" id="email" name="email"><br><br>
+        <input type="text" id="email" name="email" placeholder="Email"><br><br>
         <label for="password">Password</label><br>
-        <input type="text" id="password" name="password"><br><br>
-        <br><input type="button" value="Log in"><br><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        <p id="error"></p>
+        <br><button type="submit">Log in</button><br><br>
         <a href="">No account?, Create one!</a>
     </form> 
 </div>
 <style>
+    h2 {
+        margin: 20px 80px;
+    }
+
     form {
         background-color: var(--base-clr);
         box-shadow: 0px 4px 4.7px 5px rgba(0, 0, 0, 0.09);
         border-radius: 10%;
         padding: 30px;
+        width: fit-content;
+    }
+
+    input[type=text] {
+        background-color: var(--base-dk-clr);
+        border: 1px solid var(--base-dkr-clr);
+        border-radius: 6px;
+        padding-left: 10px;
+    }
+
+    input[type=password] {
+        background-color: var(--base-dk-clr);
+        border: 1px solid var(--base-dkr-clr);
+        border-radius: 6px;
+        padding-left: 10px;
+    }
+
+    button {
+        background-color: var(--primary-clr);
+        border: none;
+        border-radius: 20px;
+        padding: 8px 30px;
+        color: var(--primary-fnt-clr);
+        font-size: 14px;
+        margin: 0 40px;
+    }
+
+    a {
+        display: block;
+        text-align: center;
+        color: black;
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 12px;
+        color: var(--primary-clr);
     }
 </style>

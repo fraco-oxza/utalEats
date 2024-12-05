@@ -5,7 +5,7 @@ import LoginForm from "../components/LoginForm.astro";
 
 <Layout title="UtalEats">
     <main>
-        <div>
+        <div class="text">
             <div class="welcome">
                 <h1>Welcome to</h1>
                 <h1 class="logo">UtalEats</h1>
@@ -15,17 +15,47 @@ import LoginForm from "../components/LoginForm.astro";
         <LoginForm></LoginForm>
     </main>
 </Layout>
+<script>
+    const loginForm = document.getElementById("loginForm");
+
+    loginForm?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+
+        if (email?.value == "" || password?.value == "") {
+            document.getElementById("error").innerText = "Ensure you input a value in both fields!"
+        } else {
+            document.getElementById("error").innerText = "";
+            email.value = "";
+            password.value = "";
+        }
+    });
+</script>
 <style>
     main {
         display: flex;
+        margin: 20vh 3vw;
     }
 
     .welcome {
         display: flex;
+        font-size: 32px;
     }
 
     .logo {
         margin-left: 10px;
         color: var(--accent-clr);
+    }
+
+    h2 {
+        margin-left: 7vw;
+        font-weight: 400;
+        font-size: 26px;
+    }
+
+    .text {
+        margin: 10vh 10vw;
     }
 </style>
