@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Logo from "../components/Logo.astro";
+import RegisterForm from "../components/RegisterForm.astro";
+---
+
+<Layout title="UtalEats">
+    <main>
+        <Logo></Logo>
+        <div class="text">
+            <div class="create-account">
+                <h1>Let's create an</h1>
+                <h1 class="accent">account</h1>
+            </div>
+            <h2>We need some information about you</h2>
+        </div>
+        <RegisterForm></RegisterForm>
+    </main>
+</Layout>
+<script>
+</script>
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .create-account {
+        display: flex;
+        font-size: 28px;
+    }
+
+    .accent {
+        margin-left: 10px;
+        color: var(--accent-clr);
+    }
+
+    h2 {
+        margin-left: 7vw;
+        font-weight: 400;
+        font-size: 26px;
+    }
+
+    .text {
+        margin: 10vh 10vw;
+    }
+</style>
