@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import express, { Express } from "express";
 import { MongoClient } from "mongodb";
 import morgan from "morgan";
@@ -9,6 +10,7 @@ const port = process.env.PORT || 3000;
 const uri = process.env.DATABASE_URL;
 
 const OrderSchema = z.object({
+  orderId: z.string().uuid(),
   accountId: z.string(),
   storeId: z.string(),
   products: z.array(
@@ -44,7 +46,7 @@ app.post("/order", (req, res) => {
   let payload: typeof OrderSchema._type;
 
   try {
-    payload = OrderSchema.parse(req.body);
+    payload = OrderSchema.parse({ orderId: randomUUID(), ...req.body });
   } catch (err) {
     // Response what is the error with the data
     res.status(400).send(err);
