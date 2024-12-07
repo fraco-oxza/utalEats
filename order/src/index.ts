@@ -60,7 +60,10 @@ app.post("/order", (req, res) => {
   collection
     .insertOne(payload)
     .then(() => {
-      res.status(201).send("Order created");
+      res.status(200).send({
+        message: "Order created",
+        orderId: payload.orderId,
+      });
     })
     .catch((err) => {
       console.error(err);
