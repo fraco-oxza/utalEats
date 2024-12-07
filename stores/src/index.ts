@@ -23,9 +23,7 @@ async function seedDatabase() {
     return;
   }
 
-  const newStores = JSON.parse(
-    await readFile("src/initialStores.json", "utf-8")
-  );
+  const newStores = JSON.parse(await readFile("data/stores.json", "utf-8"));
   console.log(newStores);
 
   await collection.insertMany(newStores);
