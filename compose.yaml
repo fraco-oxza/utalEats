@@ -57,17 +57,6 @@ services:
         condition: service_healthy
         restart: true
 
-  stores-images:
-    build: ./stores-images
-    develop:
-      watch:
-        - action: sync+restart
-          path: stores-images/nginx.conf
-          target: /etc/nginx/nginx.conf
-        - action: sync
-          path: stores-images/images
-          target: /data
-
   stores-db:
     image: mongo
     restart: always
