@@ -1,0 +1,812 @@
+[
+  {
+    "cityName": "Rome",
+    "storeName": "Bella Vita Ristorante",
+    "category": "Italian",
+    "products": [
+      {
+        "dishName": "Spaghetti Aglio e Olio",
+        "price": 12.95,
+        "image": "https://www.themediterraneandish.com/wp-content/uploads/2023/10/aglio-e-olio-recipe-2023-7.jpg"
+      },
+      {
+        "dishName": "Bruschetta",
+        "price": 8.5,
+        "image": "https://www.cookingclassy.com/wp-content/uploads/2019/07/bruschetta-2.jpg"
+      },
+      {
+        "dishName": "Fettuccine Alfredo",
+        "price": 15.99,
+        "image": "https://www.modernhoney.com/wp-content/uploads/2018/08/Fettuccine-Alfredo-Recipe-1.jpg"
+      },
+      {
+        "dishName": "Chicken Parmesan",
+        "price": 14.95,
+        "image": "https://tastesbetterfromscratch.com/wp-content/uploads/2023/03/Chicken-Parmesan-1.jpg"
+      },
+      {
+        "dishName": "Caprese Salad",
+        "price": 10,
+        "image": "https://natashaskitchen.com/wp-content/uploads/2019/08/Caprese-Salad-6.jpg"
+      }
+    ],
+    "image": "https://images.getbento.com/accounts/3115d88f6dd9f20c4e4c792bb0373609/media/images/6757Vita_Bella_15_.png",
+    "storeId": 1
+  },
+  {
+    "cityName": "Milan",
+    "storeName": "Ristorante Bella Vita",
+    "category": "Italian",
+    "products": [
+      {
+        "dishName": "Risotto con Frutti di Mare",
+        "price": 32.5,
+        "image": "https://giadzy.com/cdn/shop/articles/Risotto_Ai_Frutti_Di_Mare_2.jpg?v=1694009813"
+      },
+      {
+        "dishName": "Pollo alla Cacciatora",
+        "price": 18,
+        "image": "https://www.thepetitecook.com/wp-content/uploads/2022/05/pollo-alla-cacciatora.jpg"
+      },
+      {
+        "dishName": "Bruschetta al Pomodoro",
+        "price": 8,
+        "image": "https://www.sandravalvassori.com/wp-content/uploads/2023/09/bruschetta-693.jpg"
+      },
+      {
+        "dishName": "Fettuccine con Funghi e Tartufo",
+        "price": 25,
+        "image": "https://giadzy.com/cdn/shop/articles/IMG_5393-copy-2_1024x.jpg?v=1657170142"
+      },
+      {
+        "dishName": "Panino con Prosciutto e Mozzarella",
+        "price": 12.5,
+        "image": "https://pinabresciani.com/wp-content/uploads/2022/09/DSC00017.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100083677989279",
+    "storeId": 2
+  },
+  {
+    "cityName": "Milan",
+    "storeName": "Bella Vita",
+    "category": "Caffè e Dolci",
+    "products": [
+      {
+        "dishName": "Tiramisù Classico",
+        "price": 6.5,
+        "image": "https://whatsgabycooking.com/wp-content/uploads/2023/12/WGC-Tiramisu-2.jpg"
+      },
+      {
+        "dishName": "Torta di Ricotta e Visciole",
+        "price": 7.9,
+        "image": "https://www.turismoroma.it/sites/default/files/Crostata_1.jpg"
+      },
+      {
+        "dishName": "Cannoli Siciliani",
+        "price": 5,
+        "image": "https://www.caviargiaveri.com/app/uploads/2023/09/ricettacannoli-siciliani-salati-giaveri-c.jpg"
+      },
+      {
+        "dishName": "Panna Cotta con Frutta",
+        "price": 6,
+        "image": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3342772858005639094"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100083150501563",
+    "storeId": 3
+  },
+  {
+    "cityName": "Austin",
+    "storeName": "Bubba's BBQ Shack",
+    "category": "American (Traditional)",
+    "products": [
+      {
+        "dishName": "St. Louis-Style Pork Ribs",
+        "price": 19.99,
+        "image": "https://eatsimplefood.com/wp-content/uploads/2020/04/BBQ-Baby-Back-Pork-Ribs-EatSimpleFood.com_.jpg"
+      },
+      {
+        "dishName": "Dry-Rubbed Brisket",
+        "price": 17.49,
+        "image": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2017/05/Brisket-Dry-Rub-Ingredients.jpg"
+      },
+      {
+        "dishName": "BBQ Pulled Pork Sandwich",
+        "price": 10.99,
+        "image": "https://www.allrecipes.com/thmb/-at8j5tk5EdjZUetFMLI9n2Le3E=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/18978-bbq-pork-for-sandwiches-cookinmama-1x1-1-244e3dba9c604f57971c6c39a71a7b1e.jpg"
+      },
+      {
+        "dishName": "Coleslaw",
+        "price": 4.25,
+        "image": "https://www.inspiredtaste.net/wp-content/uploads/2015/01/Coleslaw-Recipe-2-1200.jpg"
+      },
+      {
+        "dishName": "Baked Beans",
+        "price": 3.5,
+        "image": "https://www.allrecipes.com/thmb/LgEM55iZfiRc8eD0sc05BQTb2Ck=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21519simple-baked-beans-iiYoly4x3-f1ef499249c04f13bf068c6f6ddd1d0f.jpg"
+      }
+    ],
+    "image": "https://biteclubcayman.com/wp-content/uploads/2021/05/BubbasBBQ-Full-color.svg",
+    "storeId": 4
+  },
+  {
+    "cityName": "Beijing",
+    "storeName": "XiangYuan Restaurant",
+    "category": "Chinese",
+    "products": [
+      {
+        "dishName": "Peking Duck",
+        "price": 25.99,
+        "image": "https://redhousespice.com/wp-content/uploads/2022/01/sliced-peking-duck-with-pancakes-scaled.jpg"
+      },
+      {
+        "dishName": "Kung Pao Chicken",
+        "price": 14.95,
+        "image": "https://www.seriouseats.com/thmb/AaMf6tliWc3jh0R-9KLiJG5fzZo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2014__07__2021-02-12-Take-Out-Kung-Pao-Chicken-MHOM-11-c46f6c06713c45c5a287ddbf08779d04.jpg"
+      },
+      {
+        "dishName": "Stir-Fried Beef with Scallions",
+        "price": 16.49,
+        "image": "https://thewoksoflife.com/wp-content/uploads/2015/10/scallion-beef-stir-fry-2.jpg"
+      },
+      {
+        "dishName": "Wonton Soup",
+        "price": 10.99,
+        "image": "https://iamhomesteader.com/wp-content/uploads/2022/03/wonton-soup-1.jpg"
+      },
+      {
+        "dishName": "Egg Foo Young",
+        "price": 12.95,
+        "image": "https://www.allrecipes.com/thmb/uwbZKXU6mzFEHCHJEIFAOlpsbLg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/163370-ShrimpEggFooYoung-ddmfs-4X3-0724-bff6046f788b4acaa1692192d130d0ef.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100063693337273",
+    "storeId": 5
+  },
+  {
+    "cityName": "New York",
+    "storeName": "Savory Grill",
+    "category": "Steakhouses",
+    "products": [
+      {
+        "dishName": "Grilled Ribeye",
+        "price": 24.99,
+        "image": "https://www.cookingclassy.com/wp-content/uploads/2022/07/grilled-steak-15.jpg"
+      },
+      {
+        "dishName": "Beef Tenderloin",
+        "price": 29.95,
+        "image": "https://www.onceuponachef.com/images/2019/12/Roast-Beef-Tenderloin-9-scaled.jpg"
+      },
+      {
+        "dishName": "New York Strip Steak",
+        "price": 26.99,
+        "image": "https://www.billyparisi.com/wp-content/uploads/2018/02/steak-and-potatoes-16.jpg"
+      },
+      {
+        "dishName": "Filet Mignon",
+        "price": 32.95,
+        "image": "https://silveroak.com/wp-content/uploads/2020/03/Recipe-Peppercorn-Crusted-Filet-Mignon-600x400.jpg"
+      },
+      {
+        "dishName": "Porterhouse",
+        "price": 39.95,
+        "image": "https://assets.bonappetit.com/photos/5ebf05185c440b5a0d6a4f64/1:1/w_2560%2Cc_limit/Steak-Porterhouse-Summer-Au-Poivre-Sauce.jpg"
+      }
+    ],
+    "image": "https://dq5r178u4t83b.cloudfront.net/wp-content/uploads/sites/86/2018/07/12121931/Savoy-Grill-GR-horizontal-Gold-2021-LR.jpg",
+    "storeId": 6
+  },
+  {
+    "cityName": "San Francisco",
+    "storeName": "Tartine Bakery & Cafe",
+    "category": "Bakery/Cafe",
+    "products": [
+      {
+        "dishName": "Nectarine And Starfruit Tart",
+        "price": 12.95,
+        "image": "https://simmeringstarfruit.com/wp-content/uploads/2023/08/steamed-peaches-4-a.jpg?w=1024"
+      },
+      {
+        "dishName": "Cinnamon Swirl Brioche",
+        "price": 3.75,
+        "image": "https://thepracticalkitchen.com/wp-content/uploads/2024/02/brioche-cinnamon-rolls-6007.jpg"
+      },
+      {
+        "dishName": "Artisanal Baguette",
+        "price": 4.25,
+        "image": "https://tasteofartisan.com/wp-content/uploads/2019/05/French-baguette-recipe-3.jpg"
+      },
+      {
+        "dishName": "Fresh Fruit Salad",
+        "price": 8.95,
+        "image": "https://tastesbetterfromscratch.com/wp-content/uploads/2015/04/Fruit-Salad-1.jpg"
+      },
+      {
+        "dishName": "Quiche Lorraine",
+        "price": 14.5,
+        "image": "https://www.onceuponachef.com/images/2022/03/quiche-lorraine-1-1.jpg"
+      }
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Tartine_bakery_exterior_in_2006.jpg",
+    "storeId": 7
+  },
+  {
+    "cityName": "Barcelona",
+    "storeName": "Mar i Muntanya",
+    "category": "Spanish Cuisine",
+    "products": [
+      {
+        "dishName": "Seafood Paella",
+        "price": 19.95,
+        "image": "https://www.simplyrecipes.com/thmb/2GMHFcWEHZGOYbT4eoVCAu2uwsw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__07__Seafood-Paella-LEAD-VERTICAL-fc5f1e71baa8484cafa1a106ffaa9c23.jpg"
+      },
+      {
+        "dishName": "Grilled Octopus",
+        "price": 14.5,
+        "image": "https://dominicagourmet.com/wp-content/uploads/2020/07/Grilled-octopus-scaled.jpg"
+      },
+      {
+        "dishName": "Fideuà with Shrimp",
+        "price": 16.75,
+        "image": "https://www.foodandwine.com/thmb/4tPAldlHOh34q7icXbpOUuZRdjU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Squid-Shrimp-Fideua-With-Allioli-FT-RECIPE0921-218bc34ff0ca45bdaead193c05b05548.jpg"
+      },
+      {
+        "dishName": "Steamed Mussels",
+        "price": 10.25,
+        "image": "https://www.themediterraneandish.com/wp-content/uploads/2022/11/steamed-mussels-recipe-6.jpg"
+      },
+      {
+        "dishName": "Garlic Shrimp",
+        "price": 15.9,
+        "image": "https://www.allrecipes.com/thmb/us00EX6PHgu4Dwfq9xfH6SyliA0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/220597-Simple-garlic-shrimp-beauty3x4_38539-63f687e1ec6a41e88dfb5a9c9021e194.jpg"
+      }
+    ],
+    "image": "https://mediaproxy.salon.com/width/1200/height/675/https://media2.salon.com/2010/02/catalan_braised_chicken_and_shrimp_mar_i_muntanya.jpg",
+    "storeId": 8
+  },
+  {
+    "cityName": "New York",
+    "storeName": "Tuscany Italian Restaurant",
+    "category": "Italian",
+    "products": [
+      {
+        "dishName": "Classic Caesar Salad",
+        "price": 12.99,
+        "image": "https://www.allrecipes.com/thmb/mXZ0Tulwn3x9_YB_ZbkiTveDYFE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/229063-Classic-Restaurant-Caesar-Salad-ddmfs-4x3-231-89bafa5e54dd4a8c933cf2a5f9f12a6f.jpg"
+      },
+      {
+        "dishName": "Vegetarian Wrap",
+        "price": 10.99,
+        "image": "https://www.bowlofdelicious.com/wp-content/uploads/2014/01/veggie-wrap-1.jpg"
+      },
+      {
+        "dishName": "Spaghetti Bolognese",
+        "price": 14.99,
+        "image": "https://www.recipetineats.com/uploads/2018/07/Spaghetti-Bolognese.jpg"
+      },
+      {
+        "dishName": "Garlic Shrimp Pasta",
+        "price": 16.99,
+        "image": "https://littlesunnykitchen.com/wp-content/uploads/2020/09/Garlic-Shrimp-Pasta-15.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100063864980865",
+    "storeId": 9
+  },
+  {
+    "cityName": "Krakow",
+    "storeName": "Pierogi Palace",
+    "category": "Polish Cuisine",
+    "products": [
+      {
+        "dishName": "Classic Potato & Cheese Pierogi",
+        "price": 8.99,
+        "image": "https://eatingeuropean.com/wp-content/uploads/2014/12/pierogi-13.jpg"
+      },
+      {
+        "dishName": "Sauerkraut & Mushroom Pierogi",
+        "price": 9.49,
+        "image": "https://www.polana.com/cdn/shop/products/mushroom.jpg?v=1629368690"
+      },
+      {
+        "dishName": "Blueberry & Strawberry Pierogi (Dessert)",
+        "price": 7.99,
+        "image": "https://polishfeast.com/wp-content/uploads/Polish-Strawberry-Pierogi.jpg"
+      },
+      {
+        "dishName": "Goat Cheese & Spinach Pierogi",
+        "price": 10.99,
+        "image": "http://www.olitorykitchen.co.uk/cdn/shop/products/IMG20220325130920-_1_7f201ba6-1a0f-40b4-8485-6e0cbf7dc07b.jpg?v=1716298340"
+      },
+      {
+        "dishName": "Pierogi Ruskie (Potato & Cheese with Sour Cream)",
+        "price": 9.99,
+        "image": "https://www.thespruceeats.com/thmb/sSomOn_nkkb2RpQBDE610hlY8ZM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/potato-cheese-pierogi-recipe-1136822-hero-01-56cdc1b3faaf4a72acfca2b22b8e4269.jpg"
+      }
+    ],
+    "image": "https://westsidemarket.org/wp-content/uploads/Pierogi_Palace_2.jpg",
+    "storeId": 10
+  },
+  {
+    "cityName": "Oklahoma City",
+    "storeName": "Tangelo's Bistro",
+    "category": "Café",
+    "products": [
+      {
+        "dishName": "Classic Burger",
+        "price": 12.99,
+        "image": "http://cooksmartsapp.s3-us-west-2.amazonaws.com/meal_photos/1120/20180702-Classic-Cheeseburgers-NM-1.jpg"
+      },
+      {
+        "dishName": "Grilled Chicken Salad",
+        "price": 14.99,
+        "image": "https://www.dinneratthezoo.com/wp-content/uploads/2020/12/grilled-chicken-salad-4.jpg"
+      },
+      {
+        "dishName": "Tangelo Pie",
+        "price": 6.95,
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbMTnPVLnZV1OPzPsSqOjuZ_RUE_kPlqkz-EmnK3tn7czMXp4XmTJaQvVv2bnBC4IMHq1_0_nGywXZ_6gCtblQXp48JLwq_rki74txcXt5JE2jj6NlUWlWvfJemA6l9RCrx6aSHKbtw_U/w640-h478/2014-01-30+12.37.40.jpg"
+      },
+      {
+        "dishName": "Steak Fajitas",
+        "price": 19.99,
+        "image": "https://littlespicejar.com/wp-content/uploads/2016/08/Steak-Fajita-Bowls-with-Garlic-Lime-Rice-4.jpg"
+      },
+      {
+        "dishName": "Veggie Wrap",
+        "price": 10.99,
+        "image": "https://www.bowlofdelicious.com/wp-content/uploads/2014/01/veggie-wrap-1.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=852288402290695",
+    "storeId": 11
+  },
+  {
+    "cityName": "Sydney",
+    "storeName": "Taste Quest Cafe",
+    "category": "Fusion Cuisine",
+    "products": [
+      {
+        "dishName": "Grilled Octopus with Chimichurri",
+        "price": 22.95,
+        "image": "https://images.ctfassets.net/pujs1b1v0165/50qSnPAUuByACBngwcUzVN/9b3fb42d3e961226d94cd7cfb00a6d5d/octopus_chimichurri.jpg?w=1280"
+      },
+      {
+        "dishName": "Pan-Seared Salmon with Lemon Dill Sauce",
+        "price": 31.5,
+        "image": "https://www.tasteofhome.com/wp-content/uploads/2018/06/Pan-Seared-Salmon-with-Dill-Sauce_EXPS_FT23_133878_ST_1117_1.jpg"
+      },
+      {
+        "dishName": "Crispy Duck Breast with Cherry Compote",
+        "price": 29.75,
+        "image": "https://images.squarespace-cdn.com/content/v1/5cb1d7b92727be25696f46de/51e4d792-65e3-4eb6-b95e-c873d5262973/Hotel+Tango+Crispy+Duck+Breast+w+Cherry+Sauce+Close+up.jpg"
+      },
+      {
+        "dishName": "Spicy Shrimp and Chorizo Paella",
+        "price": 28.25,
+        "image": "https://spanishsabores.com/wp-content/uploads/2024/01/Prawn-and-Chorizo-Paella-Featured-2.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100094167364971",
+    "storeId": 12
+  },
+  {
+    "cityName": "Caracas",
+    "storeName": "El Comalito",
+    "category": "Traditional Venezuelan",
+    "products": [
+      {
+        "dishName": "Arepas de Queso",
+        "price": 4.99,
+        "image": "https://i1.wp.com/www.certifiedpastryaficionado.com/wp-content/uploads/2022/03/Colombian-Arepas-con-Queso_IMG_2950.jpg"
+      },
+      {
+        "dishName": "Arepas Fritas con Pollo",
+        "price": 7.99,
+        "image": "https://www.goya.com/media/3540/arepa-with-chicken-and-avocado-arepa-reina-pepiada.jpg?quality=80"
+      },
+      {
+        "dishName": "Arepas de Pabellón Criollo",
+        "price": 8.99,
+        "image": "https://blog.amigofoods.com/wp-content/uploads/2023/05/pabellon-arepa-1.jpg"
+      },
+      {
+        "dishName": "Cachapas con Queso y Chicharrón",
+        "price": 9.99,
+        "image": "https://img.freepik.com/premium-photo/cachapa-stuffed-with-cheese-pork-rinds-typical-venezuelan-food-made-with-corn_203019-28.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100063475961289",
+    "storeId": 13
+  },
+  {
+    "cityName": "Los Angeles",
+    "storeName": "Bella Vita",
+    "category": "Italian",
+    "products": [
+      {
+        "dishName": "Cauliflower Penne",
+        "price": 14.99,
+        "image": "https://www.wellplated.com/wp-content/uploads/2019/10/Cauliflower-Pasta.jpg"
+      },
+      {
+        "dishName": "Spaghetti Bolognese",
+        "price": 16.99,
+        "image": "https://www.recipetineats.com/uploads/2018/07/Spaghetti-Bolognese.jpg"
+      },
+      {
+        "dishName": "Bruschetta",
+        "price": 8.99,
+        "image": "https://www.cookingclassy.com/wp-content/uploads/2019/07/bruschetta-2.jpg"
+      },
+      {
+        "dishName": "Chicken Parmesan",
+        "price": 18.99,
+        "image": "https://tastesbetterfromscratch.com/wp-content/uploads/2023/03/Chicken-Parmesan-1.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100083150501563",
+    "storeId": 14
+  },
+  {
+    "cityName": "New York",
+    "storeName": "Pasta e Fagioli",
+    "category": "Italian",
+    "products": [
+      {
+        "dishName": "Spaghetti Carbonara",
+        "price": 14.99,
+        "image": "https://www.cookingclassy.com/wp-content/uploads/2020/10/spaghetti-carbonara-01.jpg"
+      },
+      {
+        "dishName": "Classic Lasagna",
+        "price": 12.95,
+        "image": "https://www.thewholesomedish.com/wp-content/uploads/2018/07/Best-Lasagna-550-500x500.jpg"
+      },
+      {
+        "dishName": "Vegetarian Stuffed Shells",
+        "price": 10.99,
+        "image": "https://fullofplants.com/wp-content/uploads/2023/05/easy-spinach-and-ricotta-vegan-stuffed-shells-15-1400x2100.jpg"
+      },
+      {
+        "dishName": "Bruschetta",
+        "price": 6.95,
+        "image": "https://www.cookingclassy.com/wp-content/uploads/2019/07/bruschetta-2.jpg"
+      },
+      {
+        "dishName": "Garlic and Herb Focaccia",
+        "price": 4.99,
+        "image": "https://www.allrecipes.com/thmb/whBv1HVdlAtCcF4qS0wdjzxZcBw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9395365-deliciously-easy-garlic-herb-focaccia-Deb-C-4x3-1-883ee67055084b7880a0730c56e57f3b.jpg"
+      }
+    ],
+    "image": "https://terianncarty.com/wp-content/uploads/2023/04/PASTA-E-FAGIOLI-.jpeg",
+    "storeId": 15
+  },
+  {
+    "cityName": "Los Angeles",
+    "storeName": "Karam's Kitchen",
+    "category": "Middle Eastern Cuisine",
+    "products": [
+      {
+        "dishName": "Assyrian Gruyere Soup",
+        "price": 7.99,
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV_Xy3-FjU9jx1gG2ubVm56MSNPAF7mfbe3fpbBfHgGTmVgAo-k4t69ODeA6GSg_CtQYA2L405zeQHWWOCWqURyxuDjytmircZG484HfdxKI5HZ8MjDp-fvYjYRc47iG1E49Ovllk6rwgD/s1013/Garlic+onion+soup.jpg"
+      },
+      {
+        "dishName": "Falafel Wrap",
+        "price": 8.49,
+        "image": "https://www.hauteandhealthyliving.com/wp-content/uploads/2022/01/Falafel-Wrap-with-hummus-8.jpg"
+      },
+      {
+        "dishName": "Shawarma Plate",
+        "price": 9.99,
+        "image": "https://www.hungrypaprikas.com/wp-content/uploads/2020/08/Chicken-Shawarma-Plate-blog-2.jpg"
+      },
+      {
+        "dishName": "Hummus with Pita Bread",
+        "price": 6.99,
+        "image": "https://thefoodiediaries.co/wp-content/uploads/2021/03/img_8477_jpg-1.jpg"
+      },
+      {
+        "dishName": "Grilled Halloumi Cheese",
+        "price": 10.99,
+        "image": "https://www.wellplated.com/wp-content/uploads/2013/07/Grilled-Haloumi-Cheese-with-Fresh-Cherry-Salsa-Recipe-1.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=393653529594200",
+    "storeId": 16
+  },
+  {
+    "cityName": "New York",
+    "storeName": "Rice & Spice Bistro",
+    "category": "Sri Lankan Cuisine",
+    "products": [
+      {
+        "dishName": "Crunchy Sri Lankan Stew",
+        "price": 12.99,
+        "image": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3440137844121434008"
+      },
+      {
+        "dishName": "Hoppers with Egg Curry",
+        "price": 10.99,
+        "image": "https://i0.wp.com/www.pepperdelight.com/wp-content/uploads/2021/01/pepper-delight-egg-curry-2.jpg?ssl=1"
+      },
+      {
+        "dishName": "Deviled Rice Bowl",
+        "price": 9.99,
+        "image": "https://www.thegraciouswife.com/wp-content/uploads/2016/05/Deviled-Egg-Potato-Salad-Recipe-9.jpg"
+      },
+      {
+        "dishName": "Lamb Kofta Wrap",
+        "price": 11.49,
+        "image": "https://knifeandsoul.com/wp-content/uploads/2022/01/lamb_kofta_wrap_final_3-683x1024.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100023071309120",
+    "storeId": 17
+  },
+  {
+    "cityName": "New York",
+    "storeName": "Bella Vita",
+    "category": "Italian",
+    "products": [
+      {
+        "dishName": "Mushroom Risotto",
+        "price": 24.99,
+        "image": "https://www.simplyrecipes.com/thmb/SRAi5Uh_AGNgq84stLgXlpcmrOw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Mushroom-Risotto-LEAD-8-97bfe04179ac417e9599d9f30d6cc801.JPG"
+      },
+      {
+        "dishName": "Vegetarian Lasagna",
+        "price": 19.95,
+        "image": "https://cdn.loveandlemons.com/wp-content/uploads/2023/12/vegetarian-lasagna-scaled.jpg"
+      },
+      {
+        "dishName": "Spaghetti Bolognese",
+        "price": 16.99,
+        "image": "https://www.recipetineats.com/uploads/2018/07/Spaghetti-Bolognese.jpg"
+      },
+      {
+        "dishName": "Chicken Parmesan",
+        "price": 18.5,
+        "image": "https://tastesbetterfromscratch.com/wp-content/uploads/2023/03/Chicken-Parmesan-1.jpg"
+      },
+      {
+        "dishName": "Cannoli Siciliani",
+        "price": 8.95,
+        "image": "https://www.caviargiaveri.com/app/uploads/2023/09/ricettacannoli-siciliani-salati-giaveri-c.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100083150501563",
+    "storeId": 18
+  },
+  {
+    "cityName": "Tirana",
+    "storeName": "Baba Gano's Kitchen",
+    "category": "Traditional Albanian Cuisine",
+    "products": [
+      {
+        "dishName": "Golden Albanian Stew (Sheperd's Pie variation)",
+        "price": 12.99,
+        "image": "https://i.natgeofe.com/n/f8213b27-c976-4486-8313-22898909811e/Moussaka3.jpg"
+      },
+      {
+        "dishName": "Qofte Ball (Albanian Meatballs) - Beef & Onion",
+        "price": 8.99,
+        "image": "https://mediterraneanlatinloveaffair.com/wp-content/uploads/2021/02/Albanian-meatballs-qofter-1.jpg"
+      },
+      {
+        "dishName": "Tavë Kosi (Grilled Lamb with Yogurt & Herbs)",
+        "price": 15.99,
+        "image": "https://thumbs.dreamstime.com/b/traditional-albanian-tave-kosi-elbasani-delightful-dish-lamb-baked-creamy-yogurt-egg-custard-served-baking-taste-329109540.jpg"
+      },
+      {
+        "dishName": "Byrek (Flaky Pastry Pie) - Spinach & Feta",
+        "price": 6.99,
+        "image": "https://balkanbites.co/cdn/shop/products/BalkanBites-2Bureks-Bag-Front-White-BG-Spinach-1500x1500_3_4_1500x.jpg?v=1652229950"
+      },
+      {
+        "dishName": "Ajvar (Roasted Red Pepper Sauce)",
+        "price": 4.99,
+        "image": "https://www.seriouseats.com/thmb/FPNJOk1UM0wDbv8vCiJ0AtdRIWY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2013__09__20130903-265217-ajvar-e5097e43dd1a4ca7ba451d70ff1b1fea.jpg"
+      }
+    ],
+    "image": "https://galyalovesfood.com/wp-content/uploads/2021/07/galy-shani-galya-loves-food-collage-730w.jpg?w=730",
+    "storeId": 19
+  },
+  {
+    "cityName": "Tokyo",
+    "storeName": "Sushi Fushia",
+    "category": "Japanese",
+    "products": [
+      {
+        "dishName": "Tuna Sashimi",
+        "price": 20,
+        "image": "https://cdn.urbancookery.com/2021/01/tuna_sashimi_2.jpg__1500x0_q85_autocrop_crop-smart_upscale.jpg"
+      },
+      {
+        "dishName": "Salmon Sushi Roll",
+        "price": 18.5,
+        "image": "https://reciperunner.com/wp-content/uploads/2022/04/salmon-roll-sushi-bowls-4.jpg"
+      },
+      {
+        "dishName": "Spicy Tuna Roll",
+        "price": 19.8,
+        "image": "https://www.tiger-corporation.com/wp-content/uploads/2023/02/hero-img-recipe-spicy-tuna-3db6e125056f2bde01321a3da5d290da.jpg"
+      },
+      {
+        "dishName": "California Roll",
+        "price": 17,
+        "image": "https://hungryfoodie.com/wp-content/uploads/2021/04/California-Roll-in-a-Bowl-RecipeIMG_4267.jpg"
+      }
+    ],
+    "image": "https://m.media-amazon.com/images/I/91PydfGOQiL._AC_UY1000_.jpg",
+    "storeId": 20
+  },
+  {
+    "cityName": "London",
+    "storeName": "The Codfather",
+    "category": "Fish & Seafood",
+    "products": [
+      {
+        "dishName": "Cod and Chips",
+        "price": 10.99,
+        "image": "https://www.thespruceeats.com/thmb/sdVTq0h7xZvJjPr6bE2fhh5M3NI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-best-fish-and-chips-recipe-434856-hero-01-27d8b57008414972822b866609d0af9b.jpg"
+      },
+      {
+        "dishName": "Haddock and Mushy Peas",
+        "price": 11.49,
+        "image": "http://cookingwithchefbryan.com/wp-content/uploads/2023/05/Fish-and-Chips-with-Mushy-Peas-scaled.jpg"
+      },
+      {
+        "dishName": "Platter of Fresh Oysters",
+        "price": 14.99,
+        "image": "https://www.bristolfarms.com/getmedia/407d930c-1fb6-46b7-990b-ef00229ff279/blog101-platter-1400"
+      },
+      {
+        "dishName": "Fisherman's Basket (Cod, Haddock, Plaice)",
+        "price": 16.95,
+        "image": "https://images.squarespace-cdn.com/content/v1/50182a8dc4aa5fb338c47d0b/1429662071701-RXLUNV4MCBYB67SDS58P/fish-basket.png"
+      }
+    ],
+    "image": "https://i.pinimg.com/originals/25/94/98/2594984ca5e11ff9b65b3b3e00822a0e.png",
+    "storeId": 21
+  },
+  {
+    "cityName": "Tokyo",
+    "storeName": "Sakura Bistro",
+    "category": "Japanese Cuisine",
+    "products": [
+      {
+        "dishName": "Buckwheat Noodles-infused Venison",
+        "price": 32.5,
+        "image": "http://katieatthekitchendoor.com/wp-content/uploads/2012/12/2012-11-24-119.jpg"
+      },
+      {
+        "dishName": "Pan-seared Tuna with Yuzu Sauce",
+        "price": 25.99,
+        "image": "https://images.getrecipekit.com/20230920155451-perfectly-20seared-20ahi-20tuna-20-20sizzlefiosh-20x-20-40brightmomentco.jpg?aspect_ratio=4:3&quality=90&"
+      },
+      {
+        "dishName": "Grilled Wagyu Beef with Miso Glaze",
+        "price": 45,
+        "image": "https://images.squarespace-cdn.com/content/v1/5f063187ead18a2e98ba7f9b/e7e988f0-8a00-4662-83d8-bd8b706c88ee/Restaurant+Week+-+Boka+%282%29.jpg"
+      },
+      {
+        "dishName": "Steamed Edamame with Sesame Oil",
+        "price": 8.95,
+        "image": "https://pickledplum.com/wp-content/uploads/2018/09/edamame-with-soy-and-sesame-1200.jpg"
+      },
+      {
+        "dishName": "Spicy Tofu Stir-fry with Udon Noodles",
+        "price": 19.99,
+        "image": "https://thefoodietakesflight.com/wp-content/uploads/2021/03/Vegan-Stir-Fried-Spicy-Garlic-Udon-Noodles-Recipe-23.png"
+      }
+    ],
+    "image": "https://images.squarespace-cdn.com/content/v1/5b8493d296d455a851b348dd/1621217147205-I2WCR7YOHPP71JEO9K5P/sxc_cover.jpg?format=2500w",
+    "storeId": 22
+  },
+  {
+    "cityName": "Lisbon",
+    "storeName": "Restaurante O'Fado",
+    "category": "Portuguese",
+    "products": [
+      {
+        "dishName": "Bacalhau à Brás",
+        "price": 12.5,
+        "image": "https://foodandroad.com/wp-content/uploads/2021/04/bacalhau-bras-1.jpg"
+      },
+      {
+        "dishName": "Carne de Porco à Alentejana",
+        "price": 15,
+        "image": "https://wetravelportugal.com/wp-content/uploads/2020/12/porco-a-alentejana.jpg"
+      },
+      {
+        "dishName": "Arroz de Pato (Duck Rice)",
+        "price": 14.9,
+        "image": "https://www.photosandfood.ca/wp-content/uploads/2021/01/arrozdepato-SSP_193.jpg"
+      },
+      {
+        "dishName": "Cataplana de Peixe",
+        "price": 18.5,
+        "image": "https://www.foodandwine.com/thmb/ZoqM_rpVqIFojBWHoiKDmgwlOjc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Cataplana-Portugese-Fish-Stew-FT-RECIPE0522-628492e5ebd6472195934e4418ff6fca.jpg"
+      },
+      {
+        "dishName": "Grilled Sardines with Onions and Potatoes",
+        "price": 10,
+        "image": "https://blog.suvie.com/wp-content/uploads/2022/05/Grilled-Sardine_HERO.jpg"
+      }
+    ],
+    "image": "https://media-cdn.tripadvisor.com/media/photo-s/0f/63/df/b4/preparando-paelleras.jpg",
+    "storeId": 23
+  },
+  {
+    "cityName": "Barcelona",
+    "storeName": "El Olivo",
+    "category": "Spanish Cuisine",
+    "products": [
+      {
+        "dishName": "Smoky Rabbit With Zucchini",
+        "price": 22.99,
+        "image": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3339189290394082636"
+      },
+      {
+        "dishName": "Paella Valenciana",
+        "price": 19.95,
+        "image": "https://www.chocolatesandchai.com/wp-content/uploads/2022/05/Seafood-Paella-Valenciana-Featured.jpg"
+      },
+      {
+        "dishName": "Tortilla de Patatas",
+        "price": 8.5,
+        "image": "https://spanishsabores.com/wp-content/uploads/2023/07/Tortilla-de-Patatas-Featured.jpg"
+      },
+      {
+        "dishName": "Gambas al Ajillo",
+        "price": 16.99,
+        "image": "https://www.foodandwine.com/thmb/6oZOwysQLIXqVUdPJLHrYiuTHSU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gambas-al-ajillo-XL-RECIPE0917-05ade57af5194eaeba60a87b258d46f2.jpg"
+      },
+      {
+        "dishName": "Chuletón de Buey",
+        "price": 29.95,
+        "image": "https://as2.ftcdn.net/v2/jpg/05/68/56/35/1000_F_568563525_JMHDW1AlXpoyfEIc0xYmjHZmVhM1ITmo.jpg"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100057419620432",
+    "storeId": 24
+  },
+  {
+    "cityName": "Honolulu",
+    "storeName": "Poke Paradise",
+    "category": "Asian Fusion",
+    "products": [
+      {
+        "dishName": "Spicy Tuna Poke Bowl",
+        "price": 12.99,
+        "image": "https://www.skinnytaste.com/wp-content/uploads/2019/08/Spicy-Tuna-Poke-Bowls-8.jpg"
+      },
+      {
+        "dishName": "Salmon Sashimi with Yuzu Sauce",
+        "price": 14.95,
+        "image": "https://zarskitchen.com/wp-content/uploads/2021/12/IMG_0588.jpg"
+      },
+      {
+        "dishName": "Cajun Shrimp and Veggie Poke",
+        "price": 13.49,
+        "image": "https://onebalancedlife.com/wp-content/uploads/2022/01/Shrimp-Rice-Bowls-768x1024.jpg"
+      },
+      {
+        "dishName": "Grilled Mahi Mahi with Mango Salsa",
+        "price": 16.99,
+        "image": "https://www.spendwithpennies.com/wp-content/uploads/2021/08/SWP-Grilled-Mahi-Mahi-12.jpg"
+      },
+      {
+        "dishName": "Spicy Ahi Tuna Wrap",
+        "price": 11.95,
+        "image": "https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3497656529323638670"
+      }
+    ],
+    "image": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=100035434644148",
+    "storeId": 25
+  }
+]
