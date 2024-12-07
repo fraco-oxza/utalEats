@@ -17,19 +17,23 @@ import LoginForm from "../components/LoginForm.astro";
 </Layout>
 <script>
     const loginForm = document.getElementById("loginForm");
+    const error = document.getElementById("error");
+
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+
+    email.oninvalid = function() {
+        error.innerText = "Invalid email address!";
+    }
 
     loginForm?.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const email = document.getElementById("email");
-        const password = document.getElementById("password");
-
         if (email?.value == "" || password?.value == "") {
-            document.getElementById("error").innerText = "Ensure you input a value in both fields!"
+            error.innerText = "Ensure you input a value in both fields!"
         } else {
-            document.getElementById("error").innerText = "";
-            email.value = "";
-            password.value = "";
+            error.innerText = "";
+            
         }
     });
 </script>

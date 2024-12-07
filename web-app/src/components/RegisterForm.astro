@@ -1,15 +1,48 @@
-<form action="" id="registerFormPart1">
-    <label for="email">Email</label><br>
-    <input type="text" id="email" name="email" placeholder="Email"><br><br>
-    <label for="password">Password</label><br>
-    <input type="password" id="password" name="password" placeholder="Password"><br><br>
-    <label>Full Name</label><br>
-    <input type="text" class="name" id="first-name" name="first-name" placeholder="First name">
-    <input type="text" class="name" id="last-name" name="last-name" placeholder="Last name"><br><br>
-    <p id="error"></p>
-    <br><button type="submit">Continue</button><br><br>
-    <a href="login">I have an account</a>
-</form>
+<div>
+    <div id="registerFormPart1">
+        <div class="text">
+            <div class="create-account">
+                <h1>Let's create an</h1>
+                <h1 class="accent">account</h1>
+            </div>
+            <h2>We need some information about you</h2>
+        </div>
+        <form action="">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Email"><br><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" placeholder="Password"><br><br>
+            <label>Full Name</label><br>
+            <input type="text" class="name" id="first-name" name="first-name" placeholder="First name">
+            <input type="text" class="name" id="last-name" name="last-name" placeholder="Last name"><br><br>
+            <p id="error"></p>
+            <br><button type="submit">Continue</button><br><br>
+            <a href="login">I have an account</a>
+        </form>
+    </div>
+    <div id="registerFormPart2" style="display: none;">
+        <div class="text">
+            <h1>You're almost ready</h1>
+            <h2>Local shops are waiting</h2>
+        </div>
+        <form action="">
+            <label for="number">Phone number</label><br>
+            <input type="tel" id="number" name="number" placeholder="+569xxxxxxxx"><br><br>
+            <label for="city">City</label><br>
+            <select name="city" id="city">
+                <option value="none">Select your city</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select><br><br>
+            <label>Street Address</label><br>
+            <input type="text" id="address" name="address" placeholder="Eg: Mulberry Street 147 "><br><br>
+            <p id="error"></p>
+            <br><button type="submit">Create</button><br><br>
+            <a href="login">I have an account</a>
+        </form>
+    </div>
+</div>
 <style>
     form {
         background-color: var(--base-clr);
@@ -17,16 +50,32 @@
         border-radius: 10%;
         padding: 30px;
         width: fit-content;
+        margin-left: 33vw;
     }
 
     .name {
+        width: 49% !important;
         background-color: #D9D9D9 !important;
+    }
+
+    input[type=email] {
+        width: 100%;
+        background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
         border-radius: 6px;
         padding-left: 10px;
     }
 
     input[type=text] {
+        width: 100%;
+        background-color: var(--base-dk-clr);
+        border: 1px solid var(--base-dkr-clr);
+        border-radius: 6px;
+        padding-left: 10px;
+    }
+
+    input[type=tel] {
+        width: 100%;
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
         border-radius: 6px;
@@ -34,10 +83,19 @@
     }
 
     input[type=password] {
+        width: 100%;
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
         border-radius: 6px;
         padding-left: 10px;
+    }
+
+    select {
+        background-color: var(--base-dk-clr);
+        border: 1px solid var(--base-dkr-clr);
+        border-radius: 6px;
+        padding-left: 10px;
+        width: 100%;
     }
 
     button {
@@ -60,5 +118,28 @@
     p {
         font-size: 12px;
         color: var(--primary-clr);
+    }
+    
+    .create-account {
+        display: flex;
+    }
+
+    .accent {
+        margin-left: 10px;
+        color: var(--accent-clr);
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        margin-left: 7vw;
+        font-weight: 400;
+        font-size: 26px;
+    }
+
+    .text {
+        margin: 10vh 0 5vh 30vw;
     }
 </style>
