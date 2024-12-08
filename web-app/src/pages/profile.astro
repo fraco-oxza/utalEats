@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
+
 let username;
 let city: string;
 
@@ -11,7 +12,7 @@ if (userIdCookie) {
     if (response.ok) {
 		const data = await response.json();
 		username = data.name.split(' ')[0];
-		city = 'New York';
+		city = data.city;
 	}
 }
 ---
@@ -19,5 +20,40 @@ if (userIdCookie) {
 <Layout title="UtalEats">
     <main>
         <NavBar username={username} city={city}></NavBar>
+        <button id="logout">Log out</button>
     </main>
 </Layout>
+<script>
+    if (document.getElementById('username')?.innerText == '') {
+		window.location.href = '/login';
+	}
+
+    const logout = document.getElementById("logout");
+    logout?.addEventListener("click", (e) => {
+        document.cookie = "user-id=; path=/;";
+        window.location.href = "/login";
+    })
+</script>
+<style>
+    main {
+		display: flex;
+		flex-direction: column;
+	}
+
+    button {
+        float: right;
+        display: block;
+        text-align: center;
+        padding: 1% 2%;
+        text-decoration: none;
+        background-color: var(--secondary-clr);
+        border-radius: 30px;
+        border-style: hidden;
+        width: fit-content;
+    }
+
+    button:hover {
+        opacity: 0.5;
+        cursor: pointer;
+    }
+</style>

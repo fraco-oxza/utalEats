@@ -14,7 +14,7 @@ if (userIdCookie) {
     if (response.ok) {
 		const data = await response.json();
 		username = data.name.split(' ')[0];
-		city = 'New York';
+		city = data.city;
 	}
 }
 ---
@@ -32,8 +32,7 @@ if (userIdCookie) {
 </Layout>
 <script>
 	if (document.getElementById('username')?.innerText == '') {
-		//window.location.href = '/login';
-		console.log("Get out of here");
+		window.location.href = '/login';
 	}
 
 	let selected = '';
