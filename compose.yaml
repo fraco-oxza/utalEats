@@ -109,6 +109,7 @@ services:
 
   reverse-proxy:
     build: ./reverse-proxy
+    restart: always
     ports:
       - "80:80"
     depends_on:
