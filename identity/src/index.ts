@@ -40,6 +40,17 @@ app.post("/account/register", async (req, res) => {
     city: string;
   } = req.body;
 
+  const anotherAccount = await db
+    .select()
+    .from(accountTable)
+    .where(eq(accountTable.email, body.email));
+
+
+  if (anotherAccount.length > 0) {
+    res.status(400).send("Email already registered");
+    return
+  }
+
   await db.insert(accountTable).values({
     ...body,
     passwordHash: await argon2.hash(body.password),
