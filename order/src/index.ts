@@ -3,6 +3,7 @@ import express, { Express } from "express";
 import { MongoClient } from "mongodb";
 import morgan from "morgan";
 import { z } from "zod";
+import cors from "cors";
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
@@ -41,6 +42,7 @@ client
 
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cors());
 
 app.post("/order", (req, res) => {
   let payload: typeof OrderSchema._type;
