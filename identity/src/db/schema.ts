@@ -13,6 +13,6 @@ export const profileTable = pgTable("profile", {
     .references(() => accountTable.id),
   name: text().notNull(),
   phone: text().notNull(),
-  address: text(),
-  city: text(),
+  address: text().notNull(),
+  city: text().notNull(),
 });
