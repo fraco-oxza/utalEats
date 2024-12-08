@@ -1,10 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
+let username;
+let city: string;
+
+const userIdCookie = Astro.cookies.get('user-id');
+if (userIdCookie) {
+    const url = 'http://identity:3000/profile/?accountId=' + userIdCookie.value;
+    const response = await fetch(url);
+    if (response.ok) {
+		const data = await response.json();
+		username = data.name.split(' ')[0];
+		city = 'New York';
+	}
+}
 ---
 
 <Layout title="UtalEats">
     <main>
-        <NavBar></NavBar>
+        <NavBar username={username} city={city}></NavBar>
     </main>
 </Layout>

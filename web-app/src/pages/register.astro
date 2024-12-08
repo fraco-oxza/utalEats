@@ -46,6 +46,7 @@ import RegisterForm from "../components/RegisterForm.astro";
     const form1 = document.getElementById('registerFormPart1');
     const form2 = document.getElementById('registerFormPart2');
     const error = document.getElementById("error");
+    const error2 = document.getElementById("error2");
 
     const email = document.getElementById("email");
     const password = document.getElementById("password");
@@ -65,6 +66,9 @@ import RegisterForm from "../components/RegisterForm.astro";
 
     email.oninvalid = function() {
             error.innerText = "Invalid email address!";
+    }
+    number.oninvalid = function() {
+            error2.innerText = "Invalid phone number!";
     }
 
     form1?.addEventListener("submit", (e) => {
@@ -87,9 +91,9 @@ import RegisterForm from "../components/RegisterForm.astro";
         e.preventDefault();
 
         if (number?.value == "" || city?.value == "none" || address?.value == "") {
-            error.innerText = "Ensure you input a value in all fields!"
+            error2.innerText = "Ensure you input a value in all fields!"
         } else {
-            error.innerText = "";
+            error2.innerText = "";
             numberValue = number?.value;
             cityValue = city?.value;
             addressValue = address?.value;

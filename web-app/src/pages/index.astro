@@ -11,12 +11,11 @@ const userIdCookie = Astro.cookies.get('user-id');
 if (userIdCookie) {
     const url = 'http://identity:3000/profile/?accountId=' + userIdCookie.value;
     const response = await fetch(url);
-    if (!response.ok) throw new Error('Ups: ' + response.statusText);
-    const data = await response.json();
-    username = data.name.split(' ')[0];
-    city = 'New York';
-} else {
-	window.location.href = '/login';
+    if (response.ok) {
+		const data = await response.json();
+		username = data.name.split(' ')[0];
+		city = 'New York';
+	}
 }
 ---
 
@@ -32,6 +31,11 @@ if (userIdCookie) {
 	</main>
 </Layout>
 <script>
+	if (document.getElementById('username')?.innerText == '') {
+		//window.location.href = '/login';
+		console.log("Get out of here");
+	}
+
 	let selected = '';
     const categoryAll = document.getElementById('All');
     if (categoryAll != null) {

@@ -1,3 +1,18 @@
+---
+const url = 'http://stores:3000/store/';
+const response = await fetch(url);
+const stores = await response.json();
+
+const cities = stores
+  .map(store => store.cityName)
+  .reduce((unique, city) => {
+    if (!unique.includes(city)) {
+      unique.push(city);
+    }
+    return unique;
+  }, []);
+---
+
 <div>
     <div id="registerFormPart1">
         <div class="text">
@@ -27,17 +42,17 @@
         </div>
         <form action="">
             <label for="number">Phone number</label><br>
-            <input type="tel" id="number" name="number" placeholder="+569xxxxxxxx"><br><br>
+            <input type="tel" id="number" name="number" placeholder="+569xxxxxxxx" pattern="[0-9]*"><br><br>
             <label for="city">City</label><br>
             <select name="city" id="city">
                 <option value="none">Select your city</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+                {cities.map((city) => (
+                    <option value={city}>{city}</option>
+                ))}
               </select><br><br>
             <label>Street Address</label><br>
             <input type="text" id="address" name="address" placeholder="Eg: Mulberry Street 147 "><br><br>
-            <p id="error"></p>
+            <p id="error2"></p>
             <br><button type="submit">Create</button><br><br>
             <a href="login">I have an account</a>
         </form>
@@ -106,6 +121,11 @@
         color: var(--primary-fnt-clr);
         font-size: 14px;
         margin: 0 40px;
+    }
+
+    button:hover {
+        opacity: 0.5;
+        cursor: pointer;
     }
 
     a {
