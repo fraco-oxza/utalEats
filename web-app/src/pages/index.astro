@@ -3,36 +3,38 @@ import Layout from '../layouts/Layout.astro';
 import NavBar, { city } from '../components/NavBar.astro';
 import Categories from '../components/Categories.astro';
 import Stores from '../components/Stores.astro';
+
+let username;
+let city: string;
+
+const userIdCookie = Astro.cookies.get('user-id');
+if (userIdCookie) {
+    const url = 'http://identity:3000/profile/?accountId=' + userIdCookie.value;
+    const response = await fetch(url);
+    if (response.ok) {
+		const data = await response.json();
+		username = data.name.split(' ')[0];
+		city = data.city;
+	}
+}
 ---
 
 <Layout title="UtalEats">
 	<main >
 		<div>
-			<NavBar></NavBar>
+			<NavBar username={username} city={city}></NavBar>
 			<h1>Categories</h1>
 			<Categories></Categories>
 			<h1>Stores</h1>
 		</div>
 		<Stores city={city}></Stores>
 	</main>
-	<style>
-		main div {
-			display: flex;
-			flex-direction: column;
-			width: 100%;
-		}
-
-		main {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-		h1 {
-			font-size: 28px;
-		}
-	</style>
 </Layout>
 <script>
+	if (document.getElementById('username')?.innerText == '') {
+		window.location.href = '/login';
+	}
+
 	let selected = '';
     const categoryAll = document.getElementById('All');
     if (categoryAll != null) {
@@ -56,3 +58,19 @@ import Stores from '../components/Stores.astro';
     });
   });
 </script>
+<style>
+	main div {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	h1 {
+		font-size: 28px;
+	}
+</style>

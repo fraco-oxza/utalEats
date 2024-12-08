@@ -1,13 +1,13 @@
 <div>
     <h2>Log in</h2>
-    <form action="" id="loginForm">
+    <form id="loginForm">
         <label for="email">Email</label><br>
-        <input type="text" id="email" name="email" placeholder="Email"><br><br>
+        <input type="email" id="email" name="email" placeholder="Email"><br><br>
         <label for="password">Password</label><br>
         <input type="password" id="password" name="password" placeholder="Password"><br><br>
         <p id="error"></p>
         <br><button type="submit">Log in</button><br><br>
-        <a href="">No account?, Create one!</a>
+        <a href="register">No account?, Create one!</a>
     </form> 
 </div>
 <style>
@@ -23,7 +23,8 @@
         width: fit-content;
     }
 
-    input[type=text] {
+    input[type=email] {
+        width: 100%;
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
         border-radius: 6px;
@@ -31,6 +32,7 @@
     }
 
     input[type=password] {
+        width: 100%;
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
         border-radius: 6px;
@@ -45,6 +47,11 @@
         color: var(--primary-fnt-clr);
         font-size: 14px;
         margin: 0 40px;
+    }
+
+    button:hover {
+        opacity: 0.5;
+        cursor: pointer;
     }
 
     a {

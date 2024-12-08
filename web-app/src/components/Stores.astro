@@ -12,11 +12,11 @@ const stores = await response.json();
 <ul>
     {stores.map((store) => (
         <Store
-        name={store.storeName};
-		category={store.category};
-		stars = {5};
-		reviews = {100};
-		imagePath={store.imagePath};
+        name={store.storeName}
+		category={store.category}
+		stars = {5}
+		reviews = {100}
+		imagePath={store.imagePath}
         ></Store>
     ))}
 </ul>
@@ -27,5 +27,6 @@ const stores = await response.json();
         align-items: center;
         width: fit-content;
         justify-content: center;
+        overflow-y: scroll;
     }
 </style>
