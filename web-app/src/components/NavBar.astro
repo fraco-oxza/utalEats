@@ -4,19 +4,19 @@ import Logo from "./Logo.astro";
 import Profile from "./Profile.astro";
 import Home from "./Home.astro";
 
-/*const url = 'http://identity:3000/profile/?accountId=' + 1;
-const response = await fetch(url);
-if (!response.ok) throw new Error('Ups: ' + response.statusText);
-const data = response.json();
-*/
-export const city = 'New York';
+interface Props {
+    username: string;
+    city: string;
+}
+
+const {username, city} = Astro.props;
 ---
 
 <ul class="nav-bar">
     <Logo></Logo>
 	<City title = {city}></City>
     <Home></Home>
-    <Profile username="Benja"></Profile>
+    <Profile username={username}></Profile>
 </ul>
 <style>
     ul {

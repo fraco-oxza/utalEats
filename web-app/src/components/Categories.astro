@@ -1,17 +1,25 @@
 ---
 import Category from "./Category.astro";
+
+const url = 'http://stores:3000/store/';
+const response = await fetch(url);
+const stores = await response.json();
+
+const categories = stores
+  .map(store => store.category)
+  .reduce((unique, category) => {
+    if (!unique.includes(category)) {
+      unique.push(category);
+    }
+    return unique;
+  }, []);
 ---
 
 <ul>
     <Category category="All"></Category>
-    <Category category="Healthy"></Category>
-    <Category category="Vegan"></Category>
-    <Category category="Comfortable"></Category>
-    <Category category="Fast food"></Category>
-    <Category category="Alcohol"></Category>
-    <Category category="Gourmet"></Category>
-    <Category category="Desserts"></Category>
-    <Category category="Homemade"></Category>
+    {categories.map((category) => (
+        <Category category={category}></Category>
+    ))}
 </ul>
 <style>
     ul {
