@@ -1,0 +1,37 @@
+---
+import Item from "./Item.astro";
+
+interface Props {
+    storeId: number;
+}
+
+const {storeId} = Astro.props;
+
+const urlProducts = 'http://stores:3000/product/?storeId=' + storeId;
+const responseProducts = await fetch(urlProducts);
+const products = await responseProducts.json();
+---
+
+<div>
+    <h2>Items</h2>
+    <ul>
+        {products.map((product) => (
+            <Item name={product.dishName} imagePath={product.image} price={product.price}></Item>
+        ))}
+    </ul>
+</div>
+<style>
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        background-color: var(--base-dk-clr);
+        border-radius: 30px;
+        margin: 30px 0;
+        padding: 20px;
+        padding-bottom: 40px;
+        align-items: center;
+        justify-content: center;
+        width: 50vw;
+    }
+</style>

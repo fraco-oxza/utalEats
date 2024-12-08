@@ -14,19 +14,17 @@ if (userIdCookie) {
     if (response.ok) {
 		const data = await response.json();
 		username = data.name.split(' ')[0];
-		city = data.city;
+		city = 'New York';
 	}
 }
 ---
 
 <Layout title="UtalEats">
 	<main >
-		<div>
-			<NavBar username={username} city={city}></NavBar>
-			<h1>Categories</h1>
-			<Categories></Categories>
-			<h1>Stores</h1>
-		</div>
+		<NavBar username={username} city={city}></NavBar>
+		<h1>Categories</h1>
+		<Categories></Categories>
+		<h1>Stores</h1>
 		<Stores city={city}></Stores>
 	</main>
 </Layout>
@@ -43,7 +41,7 @@ if (userIdCookie) {
         selected = categoryAll.id;
     }
 
-    const categories = document.querySelectorAll<HTMLButtonElement>('[category-btn]');
+    const categories = document.querySelectorAll<HTMLElement>('[category-btn]');
     categories.forEach((button) => {
     button.addEventListener('click', () => {
         const selectedButton = document.getElementById(selected);
@@ -59,18 +57,15 @@ if (userIdCookie) {
   });
 </script>
 <style>
-	main div {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
-
 	main {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		gap: 20px;
 	}
+
 	h1 {
+		margin-right: auto;
 		font-size: 28px;
 	}
 </style>

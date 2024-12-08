@@ -12,6 +12,7 @@ const stores = await response.json();
 <ul>
     {stores.map((store) => (
         <Store
+        storeId={store.storeId}
         name={store.storeName}
 		category={store.category}
 		stars = {5}
@@ -22,11 +23,15 @@ const stores = await response.json();
 </ul>
 <style>
     ul {
+        display: flex;
         list-style-type: none;
         margin-left: 0 auto;
         align-items: center;
-        width: fit-content;
+        height: 65vh;
+        width: 100%;
         justify-content: center;
         overflow-y: scroll;
+        flex-wrap: wrap;
+        gap: 70px;
     }
 </style>

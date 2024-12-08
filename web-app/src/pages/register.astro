@@ -83,7 +83,7 @@ import RegisterForm from "../components/RegisterForm.astro";
             firstNameValue = firstName?.value;
             lastNameValue = lastName?.value;
             form1.style.display = 'none';
-            form2.style.display = 'block';
+            form2.style.display = 'flex';
         }
     });
 
@@ -105,5 +105,10 @@ import RegisterForm from "../components/RegisterForm.astro";
     main {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 30px;
+        gap: 40px;
     }
 </style>

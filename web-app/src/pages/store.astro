@@ -1,6 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
+import StoreNav from "../components/StoreNav.astro";
+import Items from "../components/Items.astro";
+import Reviews from "../components/Reviews.astro";
+
+const queryParams = Astro.url.searchParams;
+const storeId = queryParams.get('storeId');
+const name = queryParams.get('name');
 
 let username;
 let city: string;
@@ -20,6 +27,11 @@ if (userIdCookie) {
 <Layout title="UtalEats">
     <main>
         <NavBar username={username} city={city}></NavBar>
+        <StoreNav name={name}></StoreNav>
+        <div>
+            <Items storeId={storeId}></Items>
+            <Reviews></Reviews>
+        </div>
     </main>
 </Layout>
 <script>
@@ -28,5 +40,12 @@ if (userIdCookie) {
 	}
 </script>
 <style>
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
+    div {
+        display: flex;
+    }
 </style>
