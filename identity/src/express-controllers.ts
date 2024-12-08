@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express";
+import rateLimit from "express-rate-limit";
 import morgan from "morgan";
 import cors from "cors";
 import { AuthService } from "./application-services";
@@ -15,6 +16,7 @@ export class AuthController {
 
   constructor() {
     this.app = express();
+    this.configureRateLimiting();
     this.configureMiddlewares();
 
     const accountRepo = new DrizzleAccountRepository();
@@ -28,6 +30,14 @@ export class AuthController {
     this.app.use(express.json());
     this.app.use(morgan("dev"));
     this.app.use(cors());
+  }
+
+  private configureRateLimiting(): void {
+    const limiter = rateLimit({
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 100, // limit each IP to 100 requests per windowMs
+    });
+    this.app.use(limiter);
   }
 
   private registerRoutes(): void {
