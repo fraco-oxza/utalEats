@@ -32,13 +32,6 @@ externos.**
   los restaurantes y dejar comentarios (estos datos no impactan en la operación
   real de ningún restaurante).
 
-**Arquitectura:**
-
-Se utiliza una arquitectura SOA, con un Reverse Proxy como punto
-de entrada único. Esta arquitectura se implementa con fines educativos, para
-familiarizarse con el desarrollo de sistemas distribuidos, aunque la escala del
-proyecto no lo requiera estrictamente.
-
 **Funcionalidades Clave para el Cliente:**
 
 - **Registro e Inicio de Sesión:** Creación de cuentas de usuario y acceso a la
@@ -73,6 +66,13 @@ servicios dentro de la arquitectura de servicios, enfocándose en las
 interacciones entre los servicios y sus respectivas bases de datos. El Proxy
 Inverso juega un papel central en el enrutamiento de las solicitudes a los
 servicios apropiados.
+
+**Arquitectura:**
+
+Se utiliza una arquitectura SOA, con un Reverse Proxy como punto
+de entrada único. Esta arquitectura se implementa con fines educativos, para
+familiarizarse con el desarrollo de sistemas distribuidos, aunque la escala del
+proyecto no lo requiera estrictamente.
 
 #### 1. Servicio de Aplicación Web
 
@@ -329,6 +329,12 @@ Gracias a Docker y Docker Compose, el despliegue y ejecución del sistema se
 simplifica considerablemente, permitiendo a cualquier persona con Docker
 instalado ejecutar el proyecto completo con un solo comando.
 
+La aplicación se ejecuta en un servidor local. Para acceder a ella desde
+cualquier lugar, utilizamos un servidor en AWS como punto de acceso VPN. El
+servidor local se conecta a la VPN en AWS. El servidor AWS redirige todo el
+tráfico entrante hacia nuestro servidor local mediante reenvío de puertos (port
+forwarding). La aplicación es accesible a través de HTTP y HTTPS.
+
 ### Frontend.
 
 #### Aplicación Web.
@@ -359,18 +365,22 @@ simplemente debe ser algo de este estilo "/api/account/login", sin embargo, si e
 código se encuentra en el lado del servidor, el url debe reflejar las carpetas del
 proyecto y se vería algo así "http://identity:3000/profile".
 
-
 #### Aplicación Móvil.
 
-La aplicación móvil de **Utal Eats** fue desarrollada utilizando **React Native**, **Expo**, y **TypeScript**, lo que permite una experiencia de usuario eficiente y multiplataforma en dispositivos **Android** y **iOS**. A continuación, se detallan sus características y componentes clave:
-
+La aplicación móvil de **Utal Eats** fue desarrollada utilizando **React
+Native**, **Expo**, y **TypeScript**, lo que permite una experiencia de usuario
+eficiente y multiplataforma en dispositivos **Android** y **iOS**. A
+continuación, se detallan sus características y componentes clave:
 
 #### **Tecnologías Utilizadas**
+
 1. **React Native**:
+
    - Base para el desarrollo de aplicaciones móviles nativas.
    - Permite la creación de componentes reutilizables y dinámicos.
 
 2. **Expo**:
+
    - Simplifica el desarrollo mediante herramientas como:
      - Sistema de rutas basado en archivos para un manejo sencillo de la navegación.
      - Depuración y pruebas en tiempo real mediante su conexión con emuladores y dispositivos físicos.
@@ -381,38 +391,43 @@ La aplicación móvil de **Utal Eats** fue desarrollada utilizando **React Nativ
    - Mejora la calidad del código al detectar errores en tiempo de desarrollo.
    - Proporciona tipado estático, facilitando el mantenimiento y escalabilidad.
 
-
 #### **Arquitectura SPA (Single Page Application)**
+
 La aplicación móvil sigue el patrón de **SPA**, lo que significa:
+
 - La navegación entre pantallas ocurre localmente, sin recargar la interfaz.
 - La información se obtiene a través de solicitudes HTTP/HTTPS a las APIs.
 - Los cambios en la interfaz se gestionan dinámicamente con React, proporcionando fluidez en la experiencia de usuario.
 
-
 #### **Gestión de Autenticación**
+
 1. **Inicio de Sesión y Registro**:
+
    - El sistema de login y registro está conectado al **servicio de identidad**, que se encarga de manejar toda la lógica de autenticación y gestión de usuarios.
    - Uso de **SecureStore** de Expo para almacenar de forma segura el `id` del usuario en el dispositivo.
-   - Uso de **React Context** para compartir el `id` entre diferentes pantallas, evitando el problema de *prop drilling*.
+   - Uso de **React Context** para compartir el `id` entre diferentes pantallas, evitando el problema de _prop drilling_.
    - Validación de entradas del usuario con **Zod**:
      - Verificación de contraseñas (formato y confirmación doble).
      - Mensajes de error claros (por ejemplo, correo duplicado).
 
 2. **Flujo de Registro**:
+
    - Dividido en dos etapas para optimizar la experiencia del usuario.
    - Si el registro es exitoso, el **servicio de identidad** devuelve el `id` del usuario recién creado, el cual se guarda localmente. Posteriormente, el usuario es redirigido a la pantalla principal.
 
 3. **Flujo de Login**:
    - Al iniciar sesión, el **servicio de identidad** valida las credenciales ingresadas y retorna el `id` del usuario. Este id se almacena localmente para mantener la sesión activa.
 
-
 #### **Pantallas y Funcionalidades Principales**
+
 #### **Página Principal**
+
 - Muestra una lista de tiendas filtradas por la ciudad del usuario.
 - Las tiendas se obtienen mediante una petición al **servicio de tiendas** y se renderizan con un componente **FlatList**:
   - Maneja grandes volúmenes de datos eficientemente.
 
 #### **Página de Tienda**
+
 - Al seleccionar una tienda, se accede a su página específica a través de rutas dinámicas (pasando el `id` como parámetro).
 - Los productos de la tienda se obtienen mediante una petición al **servicio de tiendas**.
 
@@ -422,6 +437,7 @@ La aplicación móvil sigue el patrón de **SPA**, lo que significa:
     - Permite agregar y eliminar productos.
 
 #### **Página de Checkout**
+
 - Muestra:
   - Detalle de los productos seleccionados.
   - Subtotales y el total de la compra.
@@ -431,14 +447,15 @@ La aplicación móvil sigue el patrón de **SPA**, lo que significa:
 - Los detalles de la compra se envían al **servicio de pedidos**, registrando la compra y almacenándola en el historial del usuario.
 
 #### **Página de Perfil**
+
 - Contiene:
   - Historial de órdenes pasadas, que se obtienen mediante una petición al **servicio de pedidos**.
   - Botón para editar datos del usuario, conectándose al **servicio de identidad**.
 - Implementación con una barra de navegación tipo **Tab Bar**:
   - Acceso rápido al perfil y a la página principal.
 
-
 #### **Beneficios del Desarrollo con Expo y React Native**
+
 - **Eficiencia y Flexibilidad**:
   - Desarrollo rápido gracias a las herramientas de Expo.
   - Compatible con múltiples plataformas (iOS y Android) con un solo código base.
@@ -449,13 +466,15 @@ La aplicación móvil sigue el patrón de **SPA**, lo que significa:
   - Uso de Context API para una gestión limpia del estado global.
 
 #### **Diseño Centrado en el Usuario**
+
 - **Interfaz Intuitiva**:
-   - Diseños consistentes en todas las pantallas, manteniendo un flujo lógico y claro desde el inicio de sesión hasta el checkout.
-   - Navegación optimizada mediante **Tab Bar**, que permite acceder rápidamente a las funciones más importantes.
+
+  - Diseños consistentes en todas las pantallas, manteniendo un flujo lógico y claro desde el inicio de sesión hasta el checkout.
+  - Navegación optimizada mediante **Tab Bar**, que permite acceder rápidamente a las funciones más importantes.
 
 - **Accesibilidad**:
-   - Diseño responsivo y adaptable para diferentes tamaños de pantalla.
-   - Uso de colores y fuentes amigables para garantizar la legibilidad.
+  - Diseño responsivo y adaptable para diferentes tamaños de pantalla.
+  - Uso de colores y fuentes amigables para garantizar la legibilidad.
 
 La combinación de estas tecnologías asegura una experiencia de usuario fluida y segura, cumpliendo con las necesidades tanto de los usuarios finales como del equipo de desarrollo.
 
@@ -555,3 +574,28 @@ Todos estos endpoints se encuentran bajo el prefijo `/api`.
     - 201 (Created) si la calificación se registró correctamente.
 
 ## Preocupaciones.
+
+### Seguridad:
+
+La aplicación web utiliza HTTPS para asegurar la comunicación con el cliente.
+Sin embargo, la autenticación de usuarios presenta una vulnerabilidad al
+basarse únicamente en un número identificador sin manejo de sesiones. Aunque el
+uso de la red interna de Docker proporciona cierto aislamiento para los
+servicios, la comunicación interna entre ellos no está encriptada, lo que
+representa un riesgo de seguridad. El acceso a los servidores de recursos está
+restringido mediante SSH con clave pública/privada. Las imágenes utilizadas en
+la aplicación no se almacenan localmente, sino que se enlazan a fuentes
+externas, lo que introduce una dependencia y un potencial riesgo de seguridad
+si la fuente externa se ve comprometida.
+
+### Rendimiento y Escalabilidad:
+
+El rendimiento y la escalabilidad son consideraciones prioritarias en el diseño
+de Utal Eats. Se han seleccionado frameworks y tecnologías modernas, como
+React, React Native, Astro, y Node.js, conocidos por su eficiencia y rapidez.
+La arquitectura basada en microservicios, implementada con Docker, permite un
+escalado horizontal ágil. Al contenerizar cada servicio, podemos aumentar
+rápidamente la capacidad de la plataforma creando instancias adicionales de los
+servicios críticos según la demanda. Esta flexibilidad nos permite responder de
+forma eficiente a picos de tráfico y asegurar un rendimiento óptimo incluso con
+un gran número de usuarios.
