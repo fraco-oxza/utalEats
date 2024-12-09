@@ -50,9 +50,10 @@ if (userIdCookie) {
 
     const itemsContainer = document.getElementById("items-container");
     const cart = document.getElementById("cart") as HTMLSpanElement;
-    const savedItems =
-        JSON.parse(localStorage.getItem("savedItems") ?? "{}") || [];
-    cart.innerText = savedItems.reduce((total: number, item: SavedItem) => total + item.quantity, 0).toString();
+    const savedItems = JSON.parse(localStorage.getItem("savedItems") ?? "[]");
+    cart.innerText = savedItems
+        .reduce((total: number, item: SavedItem) => total + item.quantity, 0)
+        .toString();
 
     interface SavedItem {
         name: string;
@@ -95,7 +96,9 @@ if (userIdCookie) {
             localStorage.setItem("savedItems", JSON.stringify(savedItems));
 
             if (cart) {
-                cart.innerText = savedItems.reduce((total, item) => total + item.quantity, 0).toString();
+                cart.innerText = savedItems
+                    .reduce((total, item) => total + item.quantity, 0)
+                    .toString();
             }
         }
     });
@@ -113,4 +116,3 @@ if (userIdCookie) {
         gap: 40px;
     }
 </style>
-
