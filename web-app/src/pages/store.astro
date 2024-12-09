@@ -36,7 +36,7 @@ if (userIdCookie) {
 <Layout title="UtalEats">
     <main>
         <NavBar username={username} city={city} />
-        <StoreNav name={name} />
+        <StoreNav storeId={storeId} name={name} />
         <div>
             <Items storeId={storeId} />
             <Reviews storeId={storeId} />
@@ -52,7 +52,7 @@ if (userIdCookie) {
     const cart = document.getElementById("cart") as HTMLSpanElement;
     const savedItems =
         JSON.parse(localStorage.getItem("savedItems") ?? "{}") || [];
-    cart.innerText = savedItems.length;
+    cart.innerText = savedItems.reduce((total: number, item: SavedItem) => total + item.quantity, 0).toString();
 
     interface SavedItem {
         name: string;
@@ -95,7 +95,7 @@ if (userIdCookie) {
             localStorage.setItem("savedItems", JSON.stringify(savedItems));
 
             if (cart) {
-                cart.innerText = savedItems.length.toString();
+                cart.innerText = savedItems.reduce((total, item) => total + item.quantity, 0).toString();
             }
         }
     });

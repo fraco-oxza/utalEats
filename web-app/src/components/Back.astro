@@ -1,0 +1,41 @@
+---
+interface Props {
+    url: string;
+}
+
+const {url} = Astro.props;
+---
+<a href={url}>
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" 
+    viewBox="0 0 24 24"  fill="none"  stroke="currentColor" 
+    stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round" 
+    class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
+</a>
+<style>
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+        width: fit-content;
+        color: var(--primary-fnt-clr);
+        text-align: center;
+        padding: 8px 10px;
+        text-decoration: none;
+        background-color: var(--primary-clr);
+        border-radius: 50%;
+        margin-right: auto;
+    }
+
+    svg {
+        height: 30px;
+        width: 30px;
+    }
+
+    a:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+</style>
