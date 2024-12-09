@@ -1,0 +1,106 @@
+@startuml
+
+package "Domain Interfaces" {
+    interface IAccount {
+        +id?: number
+        +email: string
+        +passwordHash: string
+    }
+
+    interface IProfile {
+        +id?: number
+        +accountId: number
+        +name: string
+        +phone: string
+        +address: string
+        +city: string 
+    }
+
+    interface IAccountRegistrationDTO {
+        +email: string
+        +password: string
+        +name: string
+        +phone: string
+        +address: string 
+        +city: string 
+    }
+
+    interface ILoginDTO {
+        +email: string
+        +password: string
+    }
+}
+
+package "Repositories" {
+    abstract class AccountRepository {
+        +{abstract} register(data: IAccountRegistrationDTO): Promise<IAccount>
+        +{abstract} login(credentials: ILoginDTO): Promise<number | null>
+        +{abstract} emailExists(email: string): Promise<boolean>
+    }
+
+    abstract class ProfileRepository {
+        +{abstract} getByAccountId(accountId: number): Promise<IProfile | null>
+    }
+
+    class DrizzleAccountRepository {
+        +register(data: IAccountRegistrationDTO): Promise<IAccount>
+        +login(credentials: ILoginDTO): Promise<number | null>
+        +emailExists(email: string): Promise<boolean>
+    }
+
+    class DrizzleProfileRepository {
+        +getByAccountId(accountId: number): Promise<IProfile | null>
+    }
+}
+
+package "Services" {
+    class AuthService {
+        -accountRepository: AccountRepository
+        -profileRepository: ProfileRepository
+        +register(data: IAccountRegistrationDTO): Promise<IAccount>
+        +login(credentials: ILoginDTO): Promise<number>
+        +getProfile(accountId: number): Promise<IProfile>
+    }
+}
+
+package "Controllers" {
+    class AuthController {
+        -app: Express
+        -authService: AuthService
+        +configureMiddlewares(): void
+        +registerRoutes(): void
+        +handleRegister(req: Request, res: Response): Promise<void>
+        +handleLogin(req: Request, res: Response): Promise<void>
+        +handleGetProfile(req: Request, res: Response): Promise<void>
+        +startServer(port?: number): void
+    }
+}
+
+' Relationships
+AccountRepository <|-- DrizzleAccountRepository
+ProfileRepository <|-- DrizzleProfileRepository
+
+AuthService o-- AccountRepository
+AuthService o-- ProfileRepository
+
+AuthController o-- AuthService
+
+note right of AuthController
+  Gestiona las rutas HTTP
+  y maneja las solicitudes
+  de autenticación
+end note
+
+note right of AuthService
+  Contiene la lógica 
+  de negocio de 
+  autenticación
+end note
+
+note right of DrizzleAccountRepository
+  Implementación concreta
+  de repositorio usando
+  Drizzle ORM
+end note
+
+@enduml

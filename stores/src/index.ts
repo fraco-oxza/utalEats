@@ -50,7 +50,7 @@ app.get("/store", async (req, res) => {
   const db = client.db("store");
   const collection = db.collection("stores");
 
-  const query = cityName ? { cityName } : {}; // If cityName is provided, filter by cityName, else return all
+  const query = cityName ? { cityName: { $eq: cityName } } : {}; // If cityName is provided, filter by cityName, else return all
   const options = {};
 
   const stores = await collection.find(query, options).toArray();
