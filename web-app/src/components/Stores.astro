@@ -20,6 +20,16 @@ const stores = await response.json();
 		imagePath={store.imagePath}
         ></Store>
     ))}
+    {stores.map((store) => (
+        <Store
+        storeId={store.storeId}
+        name={store.storeName}
+		category={store.category}
+		stars = {5}
+		reviews = {100}
+		imagePath={store.imagePath}
+        ></Store>
+    ))}
 </ul>
 <style>
     ul {
@@ -27,10 +37,9 @@ const stores = await response.json();
         list-style-type: none;
         margin-left: 0 auto;
         align-items: center;
-        height: 65vh;
+        height: 60vh;
         width: 100%;
         justify-content: center;
-        overflow-y: scroll;
         flex-wrap: wrap;
         gap: 70px;
     }
