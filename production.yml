@@ -1,0 +1,5 @@
+services:
+  web-app:
+    build:
+      context: ./web-app
+      dockerfile: Dockerfile.prod
