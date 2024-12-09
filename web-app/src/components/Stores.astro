@@ -20,16 +20,6 @@ const stores = await response.json();
 		imagePath={store.imagePath}
         ></Store>
     ))}
-    {stores.map((store) => (
-        <Store
-        storeId={store.storeId}
-        name={store.storeName}
-		category={store.category}
-		stars = {5}
-		reviews = {100}
-		imagePath={store.imagePath}
-        ></Store>
-    ))}
 </ul>
 <style>
     ul {

@@ -38,6 +38,34 @@ if (userIdCookie) {
     if (document.getElementById('username')?.innerText == '') {
 		window.location.href = '/login';
 	}
+
+    const itemsContainer = document.getElementById('items-container');
+    const cart = document.getElementById('cart');
+    const savedItems = JSON.parse(localStorage.getItem('savedItems')) || [];
+    cart.innerText = savedItems.length;
+
+    itemsContainer?.addEventListener('click', (event) => {
+      const target = event.target.closest('.plus');
+      if (target) {
+        console.log(target);
+        const name = target.dataset.name;
+        const imagePath = target.dataset.image;
+        const price = parseFloat(target.dataset.price);
+
+        const existingItem = savedItems.find((item) => item.name === name);
+
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            const newItem = { name, imagePath, price, quantity: 1 };
+            savedItems.push(newItem);
+        }
+
+        localStorage.setItem('savedItems', JSON.stringify(savedItems));
+        
+        cart.innerText = savedItems.length;
+      }
+    });
 </script>
 <style>
     main {

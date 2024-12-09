@@ -14,7 +14,7 @@ const products = await responseProducts.json();
 
 <div>
     <h1>Items</h1>
-    <ul>
+    <ul id="items-container">
         {products.map((product) => (
             <Item name={product.dishName} imagePath={product.image} price={product.price}></Item>
         ))}
