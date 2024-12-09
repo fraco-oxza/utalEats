@@ -4,26 +4,39 @@ interface Props {
     imagePath: string;
     price: number;
 }
-let {name, imagePath, price} = Astro.props;
+let { name, imagePath, price } = Astro.props;
 price = Math.ceil(price * 980); //Dolar to CLP
-
-
 ---
 
 <li>
-    <img src={imagePath}>
+    <img src={imagePath} />
     <p>{name}</p>
     <div class="price">
         <p>CLP</p>
         <p class="priceText">${price}</p>
     </div>
-    <div class="plus" data-name={name} data-image={imagePath} data-price={price} role="button">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" 
-        viewBox="0 0 24 24"  fill="none"  stroke="currentColor" 
-        stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round" 
-        class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+    <div
+        class="plus"
+        data-name={name}
+        data-image={imagePath}
+        data-price={price}
+        role="button"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
+        >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 5l0 14"></path><path d="M5 12l14 0"></path></svg
+        >
     </div>
 </li>
 <style>
@@ -78,3 +91,4 @@ price = Math.ceil(price * 980); //Dolar to CLP
         stroke-width: 3px;
     }
 </style>
+

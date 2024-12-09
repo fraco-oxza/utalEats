@@ -6,12 +6,19 @@ import RegisterForm from "../components/RegisterForm.astro";
 
 <Layout title="UtalEats">
     <main>
-        <Logo></Logo>
-        <RegisterForm></RegisterForm>
+        <Logo />
+        <RegisterForm />
     </main>
 </Layout>
 <script>
-    async function register(email: string, password: string, name: string, phone: string, address: string, city: string) {
+    async function register(
+        email: string,
+        password: string,
+        name: string,
+        phone: string,
+        address: string,
+        city: string,
+    ) {
         const body = {
             email: email,
             password: password,
@@ -19,93 +26,113 @@ import RegisterForm from "../components/RegisterForm.astro";
             phone: phone,
             address: address,
             city: city,
-        }
+        };
 
         try {
-            const response = await fetch('/api/account/register', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body),
-      });
+            const response = await fetch("/api/account/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+            });
 
             if (response.ok) {
                 const result = await response.json();
                 document.cookie = `user-id=${result}; path=/; max-age=3600`;
-                window.location.href = '/';
+                window.location.href = "/";
             } else {
                 error2.innerText = "Email already registered!";
-                error2.style = "color: var(--primary-clr);"
+                error2.style.setProperty("color", "var(--primary-clr)");
             }
         } catch (error) {
-            alert('An error occurred while submitting the form.');
+            alert("An error occurred while submitting the form.");
         }
     }
 
-    const form1 = document.getElementById('registerFormPart1');
-    const form2 = document.getElementById('registerFormPart2');
-    const error = document.getElementById("error");
-    const error2 = document.getElementById("error2");
+    const form1 = document.getElementById(
+        "registerFormPart1",
+    ) as HTMLFormElement;
+    const form2 = document.getElementById(
+        "registerFormPart2",
+    ) as HTMLFormElement;
+    const error = document.getElementById("error") as HTMLDivElement;
+    const error2 = document.getElementById("error2") as HTMLDivElement;
 
-    const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const password2 = document.getElementById("password2");
-    const firstName = document.getElementById("first-name");
-    const lastName = document.getElementById("last-name");
-    const number = document.getElementById("number");
-    const city = document.getElementById("city");
-    const address = document.getElementById("address");
+    const email = document.getElementById("email") as HTMLInputElement;
+    const password = document.getElementById("password") as HTMLInputElement;
+    const password2 = document.getElementById("password2") as HTMLInputElement;
+    const firstName = document.getElementById("first-name") as HTMLInputElement;
+    const lastName = document.getElementById("last-name") as HTMLInputElement;
+    const number = document.getElementById("number") as HTMLInputElement;
+    const city = document.getElementById("city") as HTMLSelectElement;
+    const address = document.getElementById("address") as HTMLInputElement;
 
-    let emailValue;
-    let passwordValue;
-    let firstNameValue;
-    let lastNameValue;
+    let emailValue: string;
+    let passwordValue: string;
+    let firstNameValue: string;
+    let lastNameValue: string;
     let numberValue;
     let cityValue;
     let addressValue;
 
-    email.oninvalid = function() {
-            error.innerText = "Invalid email address!";
-            error2.style = "color: var(--primary-clr);";
-    }
-    number.oninvalid = function() {
-            error2.innerText = "Invalid phone number!";
-            error2.style = "color: var(--primary-clr);";
-    }
+    email.oninvalid = function () {
+        error.innerText = "Invalid email address!";
+        error2.style.setProperty("color", "var(--primary-clr)");
+    };
+    number.oninvalid = function () {
+        error2.innerText = "Invalid phone number!";
+        error2.style.setProperty("color", "var(--primary-clr)");
+    };
 
     form1?.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        if (email?.value == "" || password?.value == "" || firstName?.value == "" || lastName?.value == "") {
+        if (
+            email?.value == "" ||
+            password?.value == "" ||
+            firstName?.value == "" ||
+            lastName?.value == ""
+        ) {
             error.innerText = "Ensure you input a value in all fields!";
-            error.style = "color: var(--primary-clr);";
+            error.style.setProperty("color", "var(--primary-clr)");
         } else if (password2?.value != password?.value) {
             error.innerText = "Ensure both passwords are the same!";
-            error.style = "color: var(--primary-clr);";
+            error.style.setProperty("color", "var(--primary-clr)");
         } else {
-            error.style = "color: var(--base-clr);";
+            error.style.setProperty("color", "var(--base-clr)");
             emailValue = email?.value;
             passwordValue = password?.value;
             firstNameValue = firstName?.value;
             lastNameValue = lastName?.value;
-            form1.style.display = 'none';
-            form2.style.display = 'flex';
+            form1.style.display = "none";
+            form2.style.display = "flex";
         }
     });
 
     form2?.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        if (number?.value == "" || city?.value == "none" || address?.value == "") {
+        if (
+            number?.value == "" ||
+            city?.value == "none" ||
+            address?.value == ""
+        ) {
             error2.innerText = "Ensure you input a value in all fields!";
-            error2.style = "color: var(--primary-clr);";
+            error2.style.setProperty("color", "var(--primary-clr)");
         } else {
-            error2.style = "color: var(--base-clr);";
+            error2.style.setProperty("color", "var(--base-clr)");
             numberValue = number?.value;
             cityValue = city?.value;
             addressValue = address?.value;
-            register(emailValue, passwordValue, firstNameValue + " " + lastNameValue, numberValue, addressValue, cityValue);
+            register(
+                emailValue,
+                passwordValue,
+                firstNameValue + " " + lastNameValue,
+                numberValue,
+                addressValue,
+                cityValue,
+            );
         }
     });
 </script>
@@ -120,3 +147,4 @@ import RegisterForm from "../components/RegisterForm.astro";
         gap: 40px;
     }
 </style>
+
