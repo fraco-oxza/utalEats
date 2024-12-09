@@ -334,7 +334,30 @@ instalado ejecutar el proyecto completo con un solo comando.
 #### Aplicación Web.
 
 La aplicación web de Utal Eats es una interfaz de usuario interactiva creada con
-astro.
+astro. La aplicación web sigue la plantilla por defecto de astro, donde dentro
+de la carpeta "src" se definen al menos 3 carpetas, la carpeta "components",
+que contiene todos los componentes creados reutilizables para cada página, la
+carpeta "Layout", que contiene un archivo con la plantilla para todas las
+páginas, la carpeta "pages", que contiene cada una de las páginas necesarias
+para la aplicación web, y se le agregó una carpeta styles que contiene un
+archivo con el estilo que se le aplica al Layout, por ende se le aplica
+globalmente a todas las páginas.
+
+Para loguearse y registrarse se guarda el id de la cuenta del usuario en una
+cookie, la cual es necesario que esté vigente para poder acceder a las páginas
+de la aplicación web, si la cookie ya no se encuentra vigente, se redireccionará
+al usuario a la página de log in.
+
+Para el funcionamiento del carrito se utiliza el localStorage, guardando cada
+item con su nombre, imagen, precio y cantidad.
+
+Para obtener todos los datos de la aplicación web, como las categorías, tiendas,
+ciudades, cuentas, productos, ordenes, ratings, se usan los servicios proporcionados
+por el backend, dependiendo de cuando se ejecuta el código se debe hacer las
+peticiones a distintas url, si el código se encuentra en el lado del cliente el url,
+simplemente debe ser algo de este estilo "/api/account/login", sin embargo, si el
+código se encuentra en el lado del servidor, el url debe reflejar las carpetas del
+proyecto y se vería algo así "http://identity:3000/profile".
 
 #### Aplicación Móvil.
 
