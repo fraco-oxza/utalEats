@@ -1,8 +1,9 @@
 ---
 interface Props {
+    storeId: number;
     name: string;
 }
-const {name} = Astro.props;
+const {storeId, name} = Astro.props;
 ---
 <div class="nav">
     <div class="store">
@@ -17,7 +18,7 @@ const {name} = Astro.props;
         -.632m-3.949 7.316a3 3 0 0 0 -2.995 2.824l-.005 .176a3 3 0 1 0 3 -3" /></svg>
         <p>{name}</p>
     </div>
-    <a href="">
+    <a href=`/cart/?storeId=${storeId}&name=${name}`>
         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" 
         viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler
         icons-tabler-filled icon-tabler-shopping-cart"><path stroke="none"
