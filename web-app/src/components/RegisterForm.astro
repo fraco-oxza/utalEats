@@ -14,7 +14,7 @@ const cities = stores
 ---
 
 <div>
-    <div id="registerFormPart1">
+    <div class="register-form" id="registerFormPart1">
         <div class="text">
             <div class="create-account">
                 <h1>Let's create an</h1>
@@ -23,94 +23,122 @@ const cities = stores
             <h2>We need some information about you</h2>
         </div>
         <form action="">
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="Email"><br><br>
-            <label for="password">Password</label><br>
-            <input type="password" id="password" name="password" placeholder="Password"><br><br>
-            <label>Full Name</label><br>
-            <input type="text" class="name" id="first-name" name="first-name" placeholder="First name">
-            <input type="text" class="name" id="last-name" name="last-name" placeholder="Last name"><br><br>
-            <p id="error"></p>
-            <br><button type="submit">Continue</button><br><br>
+            <div class="input">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="input">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password">
+                <input type="password" id="password2" name="password" placeholder="Confirm your password">
+            </div>
+            <div class="input">
+                <label>Full Name</label>
+                <div class="name">
+                    <input type="text" class="nameInput" id="first-name" name="first-name" placeholder="First name">
+                    <input type="text" class="nameInput" id="last-name" name="last-name" placeholder="Last name">
+                </div>
+            </div>
+            <p id="error">error</p>
+            <button type="submit">Continue</button>
             <a href="login">I have an account</a>
         </form>
     </div>
-    <div id="registerFormPart2" style="display: none;">
+    <div class="register-form" id="registerFormPart2" style="display: none;">
         <div class="text">
             <h1>You're almost ready</h1>
             <h2>Local shops are waiting</h2>
         </div>
         <form action="">
-            <label for="number">Phone number</label><br>
-            <input type="tel" id="number" name="number" placeholder="+569xxxxxxxx" pattern="[0-9]*"><br><br>
-            <label for="city">City</label><br>
-            <select name="city" id="city">
-                <option value="none">Select your city</option>
-                {cities.map((city) => (
-                    <option value={city}>{city}</option>
-                ))}
-              </select><br><br>
-            <label>Street Address</label><br>
-            <input type="text" id="address" name="address" placeholder="Eg: Mulberry Street 147 "><br><br>
-            <p id="error2"></p>
-            <br><button type="submit">Create</button><br><br>
-            <a href="login">I have an account</a>
+            <div class="input">
+                <label for="number">Phone number</label>
+                <input type="tel" id="number" name="number" placeholder="+569xxxxxxxx" pattern="[0-9]*">
+            </div>
+            <div class="input">
+                <label for="city">City</label>
+                <select name="city" id="city">
+                    <option value="none">Select your city</option>
+                    {cities.map((city) => (
+                        <option value={city}>{city}</option>
+                    ))}
+                  </select>
+            </div>
+            <div class="input">
+                <label>Street Address</label>
+                <input type="text" id="address" name="address" placeholder="Eg: Mulberry Street 147 ">
+            </div>
+            <p id="error2">error</p>
+            <button type="submit">Create</button>
+            <p class="go-back" id="go-back">Go back</p>
         </form>
     </div>
 </div>
+<script>
+    const goBack = document.getElementById("go-back");
+    goBack?.addEventListener("click", (e) => {
+        e.preventDefault();
+        const form1 = document.getElementById("registerFormPart1");
+        const form2 = document.getElementById("registerFormPart2");
+        form1.style.display = 'flex';
+        form2.style.display = 'none';
+    })
+</script>
 <style>
+    .register-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+
     form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background-color: var(--base-clr);
         box-shadow: 0px 4px 4.7px 5px rgba(0, 0, 0, 0.09);
-        border-radius: 10%;
+        border-radius: 20px;
         padding: 30px;
-        width: fit-content;
-        margin-left: 33vw;
+        min-height: 450px;
+        width: 400px;
+        gap: 20px;
     }
 
     .name {
-        width: 49% !important;
-        background-color: #D9D9D9 !important;
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
     }
 
-    input[type=email] {
-        width: 100%;
-        background-color: var(--base-dk-clr);
-        border: 1px solid var(--base-dkr-clr);
-        border-radius: 6px;
-        padding-left: 10px;
+    .nameInput {
+        width: 140px;
     }
 
-    input[type=text] {
-        width: 100%;
-        background-color: var(--base-dk-clr);
-        border: 1px solid var(--base-dkr-clr);
-        border-radius: 6px;
-        padding-left: 10px;
+    label {
+        margin-right: auto;
     }
 
-    input[type=tel] {
-        width: 100%;
-        background-color: var(--base-dk-clr);
-        border: 1px solid var(--base-dkr-clr);
-        border-radius: 6px;
-        padding-left: 10px;
+    .input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
-    input[type=password] {
-        width: 100%;
+    input {
+        width: 300px;
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
-        border-radius: 6px;
-        padding-left: 10px;
+        border-radius: 10px;
+        padding: 6px 10px;
     }
 
     select {
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
-        border-radius: 6px;
-        padding-left: 10px;
-        width: 100%;
+        border-radius: 10px;
+        padding: 6px 10px;
+        width: 300px;
     }
 
     button {
@@ -119,8 +147,9 @@ const cities = stores
         border-radius: 20px;
         padding: 8px 30px;
         color: var(--primary-fnt-clr);
-        font-size: 14px;
-        margin: 0 40px;
+        font-size: 20px;
+        width: fit-content;
+        margin-top: 20px;
     }
 
     button:hover {
@@ -132,20 +161,32 @@ const cities = stores
         display: block;
         text-align: center;
         color: black;
-        font-size: 12px;
+        font-size: 16px;
+    }
+
+    .go-back {
+        display: block;
+        text-align: center;
+        color: black;
+        font-size: 16px;
+        text-decoration: underline;
+    }
+
+    .go-back:hover {
+        cursor: pointer;
     }
 
     p {
-        font-size: 12px;
-        color: var(--primary-clr);
+        font-size: 16px;
+        color: var(--base-clr);
     }
     
     .create-account {
         display: flex;
+        gap: 10px;
     }
 
     .accent {
-        margin-left: 10px;
         color: var(--accent-clr);
     }
 
@@ -154,12 +195,14 @@ const cities = stores
     }
 
     h2 {
-        margin-left: 7vw;
         font-weight: 400;
         font-size: 26px;
     }
 
     .text {
-        margin: 10vh 0 5vh 30vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 </style>

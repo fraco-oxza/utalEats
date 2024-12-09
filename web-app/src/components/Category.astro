@@ -6,23 +6,23 @@ interface Props {
 const {category} = Astro.props;
 ---
 
-<li>
-    <button category-btn id={category}>{category}</button>
-</li>
+<li category-btn id={category}>{category}</li>
 <style>
-    button {
-        float: left;
-        display: block;
+    li {
+        flex-shrink: 0;
+        min-height: 35px;
+        min-width: 90px;
+        width: max-content;
+        padding: 10px;
         text-align: center;
-        padding: 1% 2%;
-        margin-right: 2%;
         text-decoration: none;
         background-color: var(--secondary-clr);
         border-radius: 30px;
         border-style: hidden;
+        font-size: 16px;
     }
 
-    button:hover {
+    li:hover {
         opacity: 0.5;
         cursor: pointer;
     }

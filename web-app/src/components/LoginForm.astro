@@ -1,42 +1,51 @@
 <div>
     <h2>Log in</h2>
     <form id="loginForm">
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" placeholder="Email"><br><br>
-        <label for="password">Password</label><br>
-        <input type="password" id="password" name="password" placeholder="Password"><br><br>
-        <p id="error"></p>
-        <br><button type="submit">Log in</button><br><br>
-        <a href="register">No account?, Create one!</a>
+        <div class="input">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email">
+        </div>
+        <div class="input">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password">
+        </div>
+        <p id="error">error</p>
+        <button type="submit">Log in</button>
+        <a href="register">No account? Create one!</a>
     </form> 
 </div>
 <style>
     h2 {
-        margin: 20px 80px;
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
     }
 
     form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background-color: var(--base-clr);
         box-shadow: 0px 4px 4.7px 5px rgba(0, 0, 0, 0.09);
-        border-radius: 10%;
+        border-radius: 20px;
         padding: 30px;
-        width: fit-content;
+        min-height: 450px;
+        width: 400px;
+        gap: 20px;
     }
 
-    input[type=email] {
-        width: 100%;
-        background-color: var(--base-dk-clr);
-        border: 1px solid var(--base-dkr-clr);
-        border-radius: 6px;
-        padding-left: 10px;
+    .input {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
-    input[type=password] {
-        width: 100%;
+    input {
+        width: 300px;
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
-        border-radius: 6px;
-        padding-left: 10px;
+        border-radius: 10px;
+        padding: 6px 10px;
     }
 
     button {
@@ -45,8 +54,8 @@
         border-radius: 20px;
         padding: 8px 30px;
         color: var(--primary-fnt-clr);
-        font-size: 14px;
-        margin: 0 40px;
+        font-size: 20px;
+        margin-top: 90px;
     }
 
     button:hover {
@@ -58,11 +67,11 @@
         display: block;
         text-align: center;
         color: black;
-        font-size: 12px;
+        font-size: 16px;
     }
 
     p {
-        font-size: 12px;
-        color: var(--primary-clr);
+        font-size: 16px;
+        color: var(--base-clr);
     }
 </style>

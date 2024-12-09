@@ -24,26 +24,24 @@ const {title} = Astro.props;
 </li>
 <style>
     li {
-        float: left;
-        display: block;
+        display: flex;
         text-align: center;
-        padding: 25px 2%;
         text-decoration: none;
     }
 
     svg {
-        width: 25%;
+        width: 25px;
     }
 
     li div {
         display: flex;
         flex-direction: row;
         align-items: center;
+        gap: 10px;
     }
 
     li div p {
-        margin-left: 10px;
         font-size: 18px;
-        width: 6vw;
+        text-transform: capitalize;
     }
 </style>

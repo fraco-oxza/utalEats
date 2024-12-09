@@ -21,8 +21,8 @@
 }
 
 body {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0 10%;
+    padding-top: 30px;
     background-color: var(--background-clr);
 }
 

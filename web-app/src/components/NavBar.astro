@@ -13,16 +13,31 @@ const {username, city} = Astro.props;
 ---
 
 <ul class="nav-bar">
-    <Logo></Logo>
-	<City title = {city}></City>
-    <Home></Home>
-    <Profile username={username}></Profile>
+    <div>
+        <Logo></Logo>
+        <City title = {city}></City>
+    </div>
+    <div>
+        <Profile username={username}></Profile>
+        <Home></Home>
+    </div>
 </ul>
 <style>
     ul {
+        display: flex;
         list-style-type: none;
-        margin: 3vh 0;
-        padding: 0;
+        padding: 10px 0;
         align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        background-color: white;
+        position: sticky;
+        top: 0;
+    }
+
+    div {
+        display: flex;
+        gap: 20px;
     }
 </style>

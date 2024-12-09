@@ -8,45 +8,36 @@ const {username} = Astro.props;
 
 <li class="profile">
     <a href="profile">
-        <div>
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24" 
-            height="24"  viewBox="0 0 24 24"  fill="currentColor" 
-            class="icon icon-tabler icons-tabler-filled icon-tabler-user">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
-            <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" /></svg>
-            <p id="username">{username}</p>
-        </div>
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24" 
+        height="24"  viewBox="0 0 24 24"  fill="currentColor" 
+        class="icon icon-tabler icons-tabler-filled icon-tabler-user">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+        <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" /></svg>
+        <p id="username">{username}</p>
     </a>
 </li>
 <style>
-    li {
-        float: right;
-        padding: 16px 1%;
-    }
-
     li a {
-        display: block;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
         color: var(--primary-fnt-clr);
         text-align: center;
-        padding: 5px;
+        padding: 10px;
         text-decoration: none;
         background-color: var(--primary-clr);
         border-radius: 30px;
+        gap: 5px;
+        font-size: 20px;
     }
 
     li a:hover {
         opacity: 0.5;
     }
 
-    li a div {
-        display: flex;
-        flex-direction: row;
-        padding: 5px;
-        align-content: center;
-    }
-
-    li a div p {
-        margin-left: 4px;
+    svg {
+        height: 30px;
+        width: 30px;
     }
 </style>

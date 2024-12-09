@@ -1,0 +1,80 @@
+---
+interface Props {
+    name: string;
+    imagePath: string;
+    price: number;
+}
+let {name, imagePath, price} = Astro.props;
+price = Math.ceil(price * 980); //Dolar to CLP
+
+
+---
+
+<li>
+    <img src={imagePath}>
+    <p>{name}</p>
+    <div class="price">
+        <p>CLP</p>
+        <p class="priceText">${price}</p>
+    </div>
+    <div class="plus" data-name={name} data-image={imagePath} data-price={price} role="button">
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" 
+        viewBox="0 0 24 24"  fill="none"  stroke="currentColor" 
+        stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round" 
+        class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+    </div>
+</li>
+<style>
+    li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 50px;
+        padding: 20px;
+        padding-bottom: 0;
+        margin: 0 2vw;
+    }
+
+    img {
+        height: 150px;
+        width: 150px;
+        border-radius: 30px;
+    }
+
+    .plus {
+        display: flex;
+        background-color: var(--primary-clr);
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        height: fit-content;
+        width: fit-content;
+        color: var(--primary-fnt-clr);
+        padding: 10px;
+        transform: translateY(50%);
+    }
+
+    .plus:hover {
+        opacity: 0.5;
+        cursor: pointer;
+    }
+
+    .price {
+        display: flex;
+        gap: 5px;
+    }
+
+    .priceText {
+        font-weight: 600;
+    }
+
+    svg {
+        height: 30px;
+        width: 30px;
+        stroke-width: 3px;
+    }
+</style>
