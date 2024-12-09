@@ -35,13 +35,14 @@ import LoginForm from "../components/LoginForm.astro";
                 const result = await response.json();
                 if (result.accountId == undefined) {
                     error.innerText = "Incorrect email or password!";
+                    error.style = "color: var(--primary-clr);"
                     return;
                 }
                 document.cookie = `user-id=${result.accountId}; path=/; max-age=3600`;
                 window.location.href = '/';
             } else {
-                console.error('Error:', response.statusText);
-                alert('Failed to submit data.');
+                error.innerText = "Incorrect email or password!";
+                error.style = "color: var(--primary-clr);"
             }
         } catch (error) {
             alert('An error occurred while submitting the form.');
@@ -56,6 +57,7 @@ import LoginForm from "../components/LoginForm.astro";
 
     email.oninvalid = function() {
         error.innerText = "Invalid email address!";
+        error.style = "color: var(--primary-clr);"
     }
 
     loginForm?.addEventListener("submit", (e) => {
@@ -63,14 +65,16 @@ import LoginForm from "../components/LoginForm.astro";
 
         if (email?.value == "" || password?.value == "") {
             error.innerText = "Ensure you input a value in both fields!"
+            error.style = "color: var(--primary-clr);"
         } else {
-            error.innerText = "";
+            error.style = "color: var(--base-clr);"
             login(email?.value, password?.value);
         }
     });
 </script>
 <style>
     main {
+        padding-bottom: 100px;
         display: flex;
         align-items: center;
         height: 100vh;

@@ -30,7 +30,7 @@ const cities = stores
             <div class="input">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Password">
-                <input type="password" id="password" name="password" placeholder="Confirm your password">
+                <input type="password" id="password2" name="password" placeholder="Confirm your password">
             </div>
             <div class="input">
                 <label>Full Name</label>
@@ -39,7 +39,7 @@ const cities = stores
                     <input type="text" class="nameInput" id="last-name" name="last-name" placeholder="Last name">
                 </div>
             </div>
-            <p id="error"></p>
+            <p id="error">error</p>
             <button type="submit">Continue</button>
             <a href="login">I have an account</a>
         </form>
@@ -67,12 +67,22 @@ const cities = stores
                 <label>Street Address</label>
                 <input type="text" id="address" name="address" placeholder="Eg: Mulberry Street 147 ">
             </div>
-            <p id="error2"></p>
+            <p id="error2">error</p>
             <button type="submit">Create</button>
-            <a href="login">I have an account</a>
+            <p class="go-back" id="go-back">Go back</p>
         </form>
     </div>
 </div>
+<script>
+    const goBack = document.getElementById("go-back");
+    goBack?.addEventListener("click", (e) => {
+        e.preventDefault();
+        const form1 = document.getElementById("registerFormPart1");
+        const form2 = document.getElementById("registerFormPart2");
+        form1.style.display = 'flex';
+        form2.style.display = 'none';
+    })
+</script>
 <style>
     .register-form {
         display: flex;
@@ -139,7 +149,7 @@ const cities = stores
         color: var(--primary-fnt-clr);
         font-size: 20px;
         width: fit-content;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     button:hover {
@@ -154,9 +164,21 @@ const cities = stores
         font-size: 16px;
     }
 
+    .go-back {
+        display: block;
+        text-align: center;
+        color: black;
+        font-size: 16px;
+        text-decoration: underline;
+    }
+
+    .go-back:hover {
+        cursor: pointer;
+    }
+
     p {
         font-size: 16px;
-        color: var(--primary-clr);
+        color: var(--base-clr);
     }
     
     .create-account {

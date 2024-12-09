@@ -4,13 +4,17 @@ interface Props {
     imagePath: string;
     price: number;
 }
-const {name, imagePath, price} = Astro.props;
+let {name, imagePath, price} = Astro.props;
+price = Math.ceil(price * 980); //Dolar to CLP
 ---
 
 <li>
     <img src={imagePath}>
     <p>{name}</p>
-    <p>CLP ${price}</p>
+    <div class="price">
+        <p>CLP</p>
+        <p class="priceText">${price}</p>
+    </div>
     <div class="plus">
         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" 
         viewBox="0 0 24 24"  fill="none"  stroke="currentColor" 
@@ -55,6 +59,15 @@ const {name, imagePath, price} = Astro.props;
     .plus:hover {
         opacity: 0.5;
         cursor: pointer;
+    }
+
+    .price {
+        display: flex;
+        gap: 5px;
+    }
+
+    .priceText {
+        font-weight: 600;
     }
 
     svg {

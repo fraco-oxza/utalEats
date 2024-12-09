@@ -13,7 +13,7 @@ const products = await responseProducts.json();
 ---
 
 <div>
-    <h2>Items</h2>
+    <h1>Items</h1>
     <ul>
         {products.map((product) => (
             <Item name={product.dishName} imagePath={product.image} price={product.price}></Item>
@@ -33,5 +33,9 @@ const products = await responseProducts.json();
         align-items: center;
         justify-content: center;
         width: 50vw;
+    }
+
+    h1 {
+        font-size: 28px;
     }
 </style>

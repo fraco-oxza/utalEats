@@ -14,7 +14,7 @@ if (userIdCookie) {
     if (response.ok) {
 		const data = await response.json();
 		username = data.name.split(' ')[0];
-		city = 'New York';
+		city = data.city;
 	}
 }
 ---
