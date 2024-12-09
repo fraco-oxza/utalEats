@@ -359,10 +359,105 @@ simplemente debe ser algo de este estilo "/api/account/login", sin embargo, si e
 código se encuentra en el lado del servidor, el url debe reflejar las carpetas del
 proyecto y se vería algo así "http://identity:3000/profile".
 
+
 #### Aplicación Móvil.
 
-La aplicación móvil de Utal Eats es una interfaz de usuario interactiva creada
-con React Native.
+La aplicación móvil de **Utal Eats** fue desarrollada utilizando **React Native**, **Expo**, y **TypeScript**, lo que permite una experiencia de usuario eficiente y multiplataforma en dispositivos **Android** y **iOS**. A continuación, se detallan sus características y componentes clave:
+
+
+#### **Tecnologías Utilizadas**
+1. **React Native**:
+   - Base para el desarrollo de aplicaciones móviles nativas.
+   - Permite la creación de componentes reutilizables y dinámicos.
+
+2. **Expo**:
+   - Simplifica el desarrollo mediante herramientas como:
+     - Sistema de rutas basado en archivos para un manejo sencillo de la navegación.
+     - Depuración y pruebas en tiempo real mediante su conexión con emuladores y dispositivos físicos.
+     - Generación de archivos ejecutables como `.apk` sin configuraciones complejas.
+   - Utilización del emulador de Android en **Android Studio** para pruebas y desarrollo.
+
+3. **TypeScript**:
+   - Mejora la calidad del código al detectar errores en tiempo de desarrollo.
+   - Proporciona tipado estático, facilitando el mantenimiento y escalabilidad.
+
+
+#### **Arquitectura SPA (Single Page Application)**
+La aplicación móvil sigue el patrón de **SPA**, lo que significa:
+- La navegación entre pantallas ocurre localmente, sin recargar la interfaz.
+- La información se obtiene a través de solicitudes HTTP/HTTPS a las APIs.
+- Los cambios en la interfaz se gestionan dinámicamente con React, proporcionando fluidez en la experiencia de usuario.
+
+
+#### **Gestión de Autenticación**
+1. **Inicio de Sesión y Registro**:
+   - El sistema de login y registro está conectado al **servicio de identidad**, que se encarga de manejar toda la lógica de autenticación y gestión de usuarios.
+   - Uso de **SecureStore** de Expo para almacenar de forma segura el `id` del usuario en el dispositivo.
+   - Uso de **React Context** para compartir el `id` entre diferentes pantallas, evitando el problema de *prop drilling*.
+   - Validación de entradas del usuario con **Zod**:
+     - Verificación de contraseñas (formato y confirmación doble).
+     - Mensajes de error claros (por ejemplo, correo duplicado).
+
+2. **Flujo de Registro**:
+   - Dividido en dos etapas para optimizar la experiencia del usuario.
+   - Si el registro es exitoso, el **servicio de identidad** devuelve el `id` del usuario recién creado, el cual se guarda localmente. Posteriormente, el usuario es redirigido a la pantalla principal.
+
+3. **Flujo de Login**:
+   - Al iniciar sesión, el **servicio de identidad** valida las credenciales ingresadas y retorna el `id` del usuario. Este id se almacena localmente para mantener la sesión activa.
+
+
+#### **Pantallas y Funcionalidades Principales**
+#### **Página Principal**
+- Muestra una lista de tiendas filtradas por la ciudad del usuario.
+- Las tiendas se obtienen mediante una petición al **servicio de tiendas** y se renderizan con un componente **FlatList**:
+  - Maneja grandes volúmenes de datos eficientemente.
+
+#### **Página de Tienda**
+- Al seleccionar una tienda, se accede a su página específica a través de rutas dinámicas (pasando el `id` como parámetro).
+- Los productos de la tienda se obtienen mediante una petición al **servicio de tiendas**.
+
+- Funciones clave:
+  - **Carrito de Compras**:
+    - Gestionado con **React Context**, lo que permite sincronización entre pantallas.
+    - Permite agregar y eliminar productos.
+
+#### **Página de Checkout**
+- Muestra:
+  - Detalle de los productos seleccionados.
+  - Subtotales y el total de la compra.
+- Para finalizar, el usuario puede dejar una **valoración** de la tienda o los productos:
+  - Puntuación de 1 a 5 estrellas.
+  - Comentarios opcionales enviados al **servicio de calificaciones** (`rating`).
+- Los detalles de la compra se envían al **servicio de pedidos**, registrando la compra y almacenándola en el historial del usuario.
+
+#### **Página de Perfil**
+- Contiene:
+  - Historial de órdenes pasadas, que se obtienen mediante una petición al **servicio de pedidos**.
+  - Botón para editar datos del usuario, conectándose al **servicio de identidad**.
+- Implementación con una barra de navegación tipo **Tab Bar**:
+  - Acceso rápido al perfil y a la página principal.
+
+
+#### **Beneficios del Desarrollo con Expo y React Native**
+- **Eficiencia y Flexibilidad**:
+  - Desarrollo rápido gracias a las herramientas de Expo.
+  - Compatible con múltiples plataformas (iOS y Android) con un solo código base.
+- **Rendimiento**:
+  - Uso de componentes optimizados como `FlatList` para listas largas.
+  - Almacenamiento seguro de datos locales con `SecureStore`.
+- **Modularidad**:
+  - Uso de Context API para una gestión limpia del estado global.
+
+#### **Diseño Centrado en el Usuario**
+- **Interfaz Intuitiva**:
+   - Diseños consistentes en todas las pantallas, manteniendo un flujo lógico y claro desde el inicio de sesión hasta el checkout.
+   - Navegación optimizada mediante **Tab Bar**, que permite acceder rápidamente a las funciones más importantes.
+
+- **Accesibilidad**:
+   - Diseño responsivo y adaptable para diferentes tamaños de pantalla.
+   - Uso de colores y fuentes amigables para garantizar la legibilidad.
+
+La combinación de estas tecnologías asegura una experiencia de usuario fluida y segura, cumpliendo con las necesidades tanto de los usuarios finales como del equipo de desarrollo.
 
 ## Definición de APIs.
 
