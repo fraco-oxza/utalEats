@@ -1,71 +1,74 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import NavBar, { city } from '../components/NavBar.astro';
-import Categories from '../components/Categories.astro';
-import Stores from '../components/Stores.astro';
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.astro";
+import Categories from "../components/Categories.astro";
+import Stores from "../components/Stores.astro";
 
 let username;
 let city: string;
 
-const userIdCookie = Astro.cookies.get('user-id');
+const userIdCookie = Astro.cookies.get("user-id");
 if (userIdCookie) {
-    const url = 'http://identity:3000/profile/?accountId=' + userIdCookie.value;
+    const url = "http://identity:3000/profile/?accountId=" + userIdCookie.value;
     const response = await fetch(url);
+
     if (response.ok) {
-		const data = await response.json();
-		username = data.name.split(' ')[0];
-		city = data.city;
-	}
+        const data = await response.json();
+        username = data.name.split(" ")[0];
+        city = data.city;
+    } else {
+        Astro.cookies.delete("user-id");
+        return Astro.redirect("/login");
+    }
+} else {
+    return Astro.redirect("/login");
 }
 ---
 
 <Layout title="UtalEats">
-	<main >
-		<NavBar username={username} city={city}></NavBar>
-		<h1>Categories</h1>
-		<Categories></Categories>
-		<h1>Stores</h1>
-		<Stores city={city}></Stores>
-	</main>
+    <main>
+        <NavBar username={username} city={city} />
+        <h1>Categories</h1>
+        <Categories />
+        <h1>Stores</h1>
+        <Stores city={city} />
+    </main>
 </Layout>
 <script>
-	if (document.getElementById('username')?.innerText == '') {
-		window.location.href = '/login';
-	}
-
-	let selected = '';
-    const categoryAll = document.getElementById('All');
+    let selected = "";
+    const categoryAll = document.getElementById("All");
     if (categoryAll != null) {
-        categoryAll.style.backgroundColor = 'var(--primary-clr)';
-        categoryAll.style.color = 'var(--primary-fnt-clr)';
+        categoryAll.style.backgroundColor = "var(--primary-clr)";
+        categoryAll.style.color = "var(--primary-fnt-clr)";
         selected = categoryAll.id;
     }
 
-    const categories = document.querySelectorAll<HTMLElement>('[category-btn]');
+    const categories = document.querySelectorAll<HTMLElement>("[category-btn]");
     categories.forEach((button) => {
-    button.addEventListener('click', () => {
-        const selectedButton = document.getElementById(selected);
-        if (selectedButton != null) {
-        selectedButton.style.backgroundColor = 'var(--secondary-clr)';
-        selectedButton.style.color = 'black';
-        }
+        button.addEventListener("click", () => {
+            const selectedButton = document.getElementById(selected);
+            if (selectedButton != null) {
+                selectedButton.style.backgroundColor = "var(--secondary-clr)";
+                selectedButton.style.color = "black";
+            }
 
-        button.style.backgroundColor = 'var(--primary-clr)';
-        button.style.color = 'var(--primary-fnt-clr)';
-        selected = button.id;
+            button.style.backgroundColor = "var(--primary-clr)";
+            button.style.color = "var(--primary-fnt-clr)";
+            selected = button.id;
+        });
     });
-  });
 </script>
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 20px;
-	}
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
-	h1 {
-		margin-right: auto;
-		font-size: 28px;
-	}
+    h1 {
+        margin-right: auto;
+        font-size: 28px;
+    }
 </style>
+

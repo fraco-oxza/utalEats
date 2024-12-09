@@ -5,19 +5,26 @@ interface Props {
     storeId: number;
 }
 
-const {storeId} = Astro.props;
+const { storeId } = Astro.props;
 
-const urlProducts = 'http://stores:3000/product/?storeId=' + storeId;
+const urlProducts = "http://stores:3000/product/?storeId=" + storeId;
 const responseProducts = await fetch(urlProducts);
-const products = await responseProducts.json();
+const products: { dishName: string; image: string; price: number }[] =
+    await responseProducts.json();
 ---
 
 <div>
     <h1>Items</h1>
     <ul id="items-container">
-        {products.map((product) => (
-            <Item name={product.dishName} imagePath={product.image} price={product.price}></Item>
-        ))}
+        {
+            products.map((product) => (
+                <Item
+                    name={product.dishName}
+                    imagePath={product.image}
+                    price={product.price}
+                />
+            ))
+        }
     </ul>
 </div>
 <style>

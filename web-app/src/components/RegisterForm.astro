@@ -1,16 +1,16 @@
 ---
-const url = 'http://stores:3000/store/';
+const url = "http://stores:3000/store/";
 const response = await fetch(url);
-const stores = await response.json();
+const stores: { cityName: string }[] = await response.json();
 
 const cities = stores
-  .map(store => store.cityName)
-  .reduce((unique, city) => {
-    if (!unique.includes(city)) {
-      unique.push(city);
-    }
-    return unique;
-  }, []);
+    .map((store) => store.cityName)
+    .reduce((unique, city) => {
+        if (!unique.includes(city)) {
+            unique.push(city);
+        }
+        return unique;
+    }, [] as string[]);
 ---
 
 <div>
@@ -25,18 +25,45 @@ const cities = stores
         <form action="">
             <div class="input">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email">
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                />
             </div>
             <div class="input">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password">
-                <input type="password" id="password2" name="password" placeholder="Confirm your password">
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                />
+                <input
+                    type="password"
+                    id="password2"
+                    name="password"
+                    placeholder="Confirm your password"
+                />
             </div>
             <div class="input">
                 <label>Full Name</label>
                 <div class="name">
-                    <input type="text" class="nameInput" id="first-name" name="first-name" placeholder="First name">
-                    <input type="text" class="nameInput" id="last-name" name="last-name" placeholder="Last name">
+                    <input
+                        type="text"
+                        class="nameInput"
+                        id="first-name"
+                        name="first-name"
+                        placeholder="First name"
+                    />
+                    <input
+                        type="text"
+                        class="nameInput"
+                        id="last-name"
+                        name="last-name"
+                        placeholder="Last name"
+                    />
                 </div>
             </div>
             <p id="error">error</p>
@@ -52,20 +79,29 @@ const cities = stores
         <form action="">
             <div class="input">
                 <label for="number">Phone number</label>
-                <input type="tel" id="number" name="number" placeholder="+569xxxxxxxx" pattern="[0-9]*">
+                <input
+                    type="tel"
+                    id="number"
+                    name="number"
+                    placeholder="+569xxxxxxxx"
+                    pattern="[0-9]*"
+                />
             </div>
             <div class="input">
                 <label for="city">City</label>
                 <select name="city" id="city">
                     <option value="none">Select your city</option>
-                    {cities.map((city) => (
-                        <option value={city}>{city}</option>
-                    ))}
-                  </select>
+                    {cities.map((city) => <option value={city}>{city}</option>)}
+                </select>
             </div>
             <div class="input">
                 <label>Street Address</label>
-                <input type="text" id="address" name="address" placeholder="Eg: Mulberry Street 147 ">
+                <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="Eg: Mulberry Street 147 "
+                />
             </div>
             <p id="error2">error</p>
             <button type="submit">Create</button>
@@ -79,9 +115,12 @@ const cities = stores
         e.preventDefault();
         const form1 = document.getElementById("registerFormPart1");
         const form2 = document.getElementById("registerFormPart2");
-        form1.style.display = 'flex';
-        form2.style.display = 'none';
-    })
+
+        if (form1 && form2) {
+            form1.style.display = "flex";
+            form2.style.display = "none";
+        }
+    });
 </script>
 <style>
     .register-form {
@@ -180,7 +219,7 @@ const cities = stores
         font-size: 16px;
         color: var(--base-clr);
     }
-    
+
     .create-account {
         display: flex;
         gap: 10px;
@@ -206,3 +245,4 @@ const cities = stores
         justify-content: center;
     }
 </style>
+

@@ -1,25 +1,36 @@
 ---
 import Store from "./Store.astro";
+
 interface Props {
     city: string;
 }
-const {city} = Astro.props;
-const url = 'http://stores:3000/store/?cityName=' + city;
+
+interface Store {
+    storeId: number;
+    storeName: string;
+    category: string;
+    imagePath: string;
+}
+
+const { city } = Astro.props;
+const url = "http://stores:3000/store/?cityName=" + city;
 const response = await fetch(url);
-const stores = await response.json(); 
+const stores: Store[] = await response.json();
 ---
 
 <ul>
-    {stores.map((store) => (
-        <Store
-        storeId={store.storeId}
-        name={store.storeName}
-		category={store.category}
-		stars = {5}
-		reviews = {100}
-		imagePath={store.imagePath}
-        ></Store>
-    ))}
+    {
+        stores.map((store) => (
+            <Store
+                storeId={store.storeId}
+                name={store.storeName}
+                category={store.category}
+                stars={5}
+                reviews={100}
+                imagePath={store.imagePath}
+            />
+        ))
+    }
 </ul>
 <style>
     ul {
@@ -34,3 +45,4 @@ const stores = await response.json();
         gap: 70px;
     }
 </style>
+

@@ -6,65 +6,98 @@ import Items from "../components/Items.astro";
 import Reviews from "../components/Reviews.astro";
 
 const queryParams = Astro.url.searchParams;
-const storeId = queryParams.get('storeId');
-const name = queryParams.get('name');
+const storeId = parseInt(queryParams.get("storeId")!);
+const name = queryParams.get("name");
+
+if (!storeId || !name) {
+    return Astro.redirect("/");
+}
 
 let username;
 let city: string;
 
-const userIdCookie = Astro.cookies.get('user-id');
+const userIdCookie = Astro.cookies.get("user-id");
 if (userIdCookie) {
-    const url = 'http://identity:3000/profile/?accountId=' + userIdCookie.value;
+    const url = "http://identity:3000/profile/?accountId=" + userIdCookie.value;
     const response = await fetch(url);
     if (response.ok) {
-		const data = await response.json();
-		username = data.name.split(' ')[0];
-		city = data.city;
-	}
+        const data = await response.json();
+        username = data.name.split(" ")[0];
+        city = data.city;
+    } else {
+        Astro.cookies.delete("user-id");
+        return Astro.redirect("/login");
+    }
+} else {
+    return Astro.redirect("/login");
 }
 ---
 
 <Layout title="UtalEats">
     <main>
-        <NavBar username={username} city={city}></NavBar>
-        <StoreNav name={name}></StoreNav>
+        <NavBar username={username} city={city} />
+        <StoreNav name={name} />
         <div>
-            <Items storeId={storeId}></Items>
-            <Reviews></Reviews>
+            <Items storeId={storeId} />
+            <Reviews storeId={storeId} />
         </div>
     </main>
 </Layout>
 <script>
-    if (document.getElementById('username')?.innerText == '') {
-		window.location.href = '/login';
-	}
+    if (document.getElementById("username")?.innerText == "") {
+        window.location.href = "/login";
+    }
 
-    const itemsContainer = document.getElementById('items-container');
-    const cart = document.getElementById('cart');
-    const savedItems = JSON.parse(localStorage.getItem('savedItems')) || [];
+    const itemsContainer = document.getElementById("items-container");
+    const cart = document.getElementById("cart") as HTMLSpanElement;
+    const savedItems =
+        JSON.parse(localStorage.getItem("savedItems") ?? "{}") || [];
     cart.innerText = savedItems.length;
 
-    itemsContainer?.addEventListener('click', (event) => {
-      const target = event.target.closest('.plus');
-      if (target) {
-        console.log(target);
-        const name = target.dataset.name;
-        const imagePath = target.dataset.image;
-        const price = parseFloat(target.dataset.price);
+    interface SavedItem {
+        name: string;
+        imagePath: string;
+        price: number;
+        quantity: number;
+    }
 
-        const existingItem = savedItems.find((item) => item.name === name);
+    itemsContainer?.addEventListener("click", (event: MouseEvent) => {
+        const target =
+            event.target instanceof Element
+                ? (event.target as Element).closest(".plus")
+                : null;
 
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            const newItem = { name, imagePath, price, quantity: 1 };
-            savedItems.push(newItem);
+        if (target) {
+            const plusElement = target as HTMLElement;
+
+            const name = plusElement.dataset.name || "";
+            const imagePath = plusElement.dataset.image || "";
+            const price = parseFloat(plusElement.dataset.price || "0");
+
+            const savedItems: SavedItem[] = JSON.parse(
+                localStorage.getItem("savedItems") || "[]",
+            );
+
+            const existingItem = savedItems.find((item) => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                const newItem: SavedItem = {
+                    name,
+                    imagePath,
+                    price,
+                    quantity: 1,
+                };
+                savedItems.push(newItem);
+            }
+
+            localStorage.setItem("savedItems", JSON.stringify(savedItems));
+
+            if (cart) {
+                cart.innerText = savedItems.length.toString();
+            }
         }
-
-        localStorage.setItem('savedItems', JSON.stringify(savedItems));
-        
-        cart.innerText = savedItems.length;
-      }
     });
 </script>
 <style>
@@ -80,3 +113,4 @@ if (userIdCookie) {
         gap: 40px;
     }
 </style>
+
