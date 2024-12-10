@@ -3,16 +3,19 @@ interface Props {
     storeId: number;
     name: string;
     category: string;
-    stars: number;
-    reviews: number;
     imagePath: string;
 }
 
-const {storeId, name, category, stars, reviews, imagePath} = Astro.props;
+const {storeId, name, category, imagePath} = Astro.props;
 
+const url = "http://rating:3000/?storeId=" + storeId;
+const response = await fetch(url);
+const data = await response.json();
+const stars = data.averageRating;
+const reviews = data.comments.length;
 ---
 
-<li>
+<li store-btn class={category}>
     <a href=`store?storeId=${storeId}&name=${name}` class="store">
         <img src={imagePath}></img>
         <p class="name">{name}</p>

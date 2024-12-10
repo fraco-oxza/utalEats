@@ -52,6 +52,7 @@ if (userIdCookie) {
     const clear = document.getElementById("clear") as HTMLButtonElement;
     clear.addEventListener("click", () => {
         localStorage.clear();
+        window.location.reload();
     });
 </script>
 <style>

@@ -1,11 +1,21 @@
 ---
 import Category from "./Category.astro";
 
+interface Props {
+  city: string;
+}
+
+const {city} = Astro.props;
+
 const url = "http://stores:3000/store/";
 const response = await fetch(url);
-const stores: { category: string }[] = await response.json();
+const stores: { category: string, cityName: string }[] = await response.json();
 
-const categories = stores
+const storesFiltered = stores.filter((store) => store.cityName == city);
+
+console.log()
+
+const categories = storesFiltered
     .map((store) => store.category)
     .reduce((unique, category) => {
         if (!unique.includes(category)) {
