@@ -32,7 +32,6 @@ html, body, main {
 body {
   padding-top: 30px;
   background-color: var(--background-clr);
-  position: relative;
 }
 
 main {

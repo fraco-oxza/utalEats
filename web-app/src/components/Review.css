@@ -6,15 +6,17 @@ h3 {
 .stars-container {
     border: 1px solid var(--base-dkrr-clr);
     border-radius: 18px;
-    padding: 0 14px;
+    padding: 0 20px;
+    padding-bottom: 6px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
-    width: 180px;
+    width: fit-content;
  
     & span {
 
-        font-size: 28px;
+        font-size: 32px;
         color: var(--primary-clr);
     }
 }
