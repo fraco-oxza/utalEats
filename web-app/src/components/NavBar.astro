@@ -23,20 +23,21 @@ const {username, city} = Astro.props;
     </div>
 </ul>
 <style>
-    ul {
+    .nav-bar {
         display: flex;
         list-style-type: none;
-        padding: 10px 0;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         width: 100%;
         background-color: white;
-        position: sticky;
+        position: fixed;
         top: 0;
+        z-index: 100;
+        padding: 15px 10%;
     }
 
-    div {
+    .nav-bar div {
         display: flex;
         gap: 20px;
     }
