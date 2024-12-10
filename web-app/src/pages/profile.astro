@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
+import type { Order } from "../lib/models";
+import Orders from "../components/Orders.astro";
 
 let username;
 let city: string;
@@ -20,19 +22,21 @@ if (userIdCookie) {
 } else {
     return Astro.redirect("/login");
 }
+
+const ordersResponse = await fetch(
+    "http://order:3000/order/?accountId=" + userIdCookie.value,
+);
+const orders: Order[] = await ordersResponse.json();
 ---
 
 <Layout title="UtalEats">
     <main>
         <NavBar username={username} city={city} />
         <button id="logout">Log out</button>
+        <Orders orders={orders} />
     </main>
 </Layout>
 <script>
-    if (document.getElementById("username")?.innerText == "") {
-        window.location.href = "/login";
-    }
-
     const logout = document.getElementById("logout");
     logout?.addEventListener("click", () => {
         document.cookie = "user-id=; path=/;";
@@ -62,4 +66,3 @@ if (userIdCookie) {
         cursor: pointer;
     }
 </style>
-
