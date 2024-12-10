@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import NavBar from "../components/NavBar.astro";
-import Back from "../components/Back.astro";
-import CartContainer from "../components/CartContainer";
+import NavBar from "../components/nav-bar/NavBar.astro";
+import Back from "../components/cart/Back.astro";
+import CartContainer from "../components/cart/CartContainer";
 
 const queryParams = Astro.url.searchParams;
 const storeId = parseInt(queryParams.get("storeId")!);

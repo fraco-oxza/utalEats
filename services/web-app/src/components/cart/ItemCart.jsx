@@ -13,28 +13,28 @@ const ItemCart = ({name, imagePath, price, quantity, isOrderDetail, increaseTota
     }, []);
 
     const addItemToCart = () => {
-            const existingItem = savedItems.find((item) => item.name === name);
-            existingItem.quantity += 1;
-            increaseTotalPrice(existingItem.price);
-            setQuantityDyn(existingItem.quantity);
-            setSavedItems(savedItems);
-            localStorage.setItem("savedItems", JSON.stringify(savedItems));
+        const existingItem = savedItems.find((item) => item.name === name);
+        existingItem.quantity += 1;
+        increaseTotalPrice(existingItem.price);
+        setQuantityDyn(existingItem.quantity);
+        setSavedItems(savedItems);
+        localStorage.setItem("savedItems", JSON.stringify(savedItems));
     };
 
     const removeItemFromCart = () => {
-            const existingItem = savedItems.find((item) => item.name === name);
-            if (existingItem.quantity <= 1) {
-                const updatedItems = savedItems.filter(item => item.name !== name);
-                localStorage.setItem('savedItems', JSON.stringify(updatedItems));
-                window.location.reload();
-            } else {
-                existingItem.quantity -= 1;
-                increaseTotalPrice(-existingItem.price);
-                setQuantityDyn(existingItem.quantity);
-                setSavedItems(savedItems);
-                localStorage.setItem("savedItems", JSON.stringify(savedItems));
-            }
-            
+        const existingItem = savedItems.find((item) => item.name === name);
+        if (existingItem.quantity <= 1) {
+            const updatedItems = savedItems.filter(item => item.name !== name);
+            setSavedItems(updatedItems);
+            localStorage.setItem('savedItems', JSON.stringify(updatedItems));
+            window.location.reload();
+        } else {
+            existingItem.quantity -= 1;
+            increaseTotalPrice(-existingItem.price);
+            setQuantityDyn(existingItem.quantity);
+            setSavedItems(savedItems);
+            localStorage.setItem("savedItems", JSON.stringify(savedItems));
+        }
     };
 
     return (
