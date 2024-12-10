@@ -48,7 +48,7 @@ if (userIdCookie) {
         </div>
     </main>
 </Layout>
-<script define:vars={{ storeId }} is:inline>
+<script define:vars={{ storeId, userIdCookie }} is:inline>
     const clear = document.getElementById("clear");
     const checkout = document.getElementById("checkout");
 
@@ -57,15 +57,38 @@ if (userIdCookie) {
         window.location.reload();
     });
 
-    const dishes = JSON.parse(localStorage.getItem("savedItems"));
+    const dishes = JSON.parse(localStorage.getItem("savedItems")).map(
+        (item) => {
+            return {
+                product: item.name,
+                quantity: item.quantity,
+                price: item.price,
+            };
+        },
+    );
 
-    checkout.addEventListener("click", () => {
-        const url = "/api/order/?storeId=" + storeId;
-        fetch(url, { method: "POST", body: dishes })
+    console.log(dishes);
+    checkout.addEventListener("click", async () => {
+        const url = "/api/order";
+        await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                storeId: storeId.toString(),
+                accountId: userIdCookie.value,
+                products: dishes,
+            }),
+        })
             .then((response) => response.json())
             .then((data) => {
                 const orderId = data.orderId;
+                console.log("Success:", data.orderId);
                 window.location.href = `/checkout?storeId=${storeId}&orderId=${orderId}`;
+            })
+            .catch((error) => {
+                console.error("Error:", error);
             });
     });
 </script>
@@ -113,4 +136,3 @@ if (userIdCookie) {
         opacity: 0.5;
     }
 </style>
-
