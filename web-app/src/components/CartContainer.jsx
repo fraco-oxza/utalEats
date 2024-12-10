@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ItemCart from './ItemCart';
 import "./CartContainer.css";
 
-const CartContainer = () => {
+const CartContainer = ({isOrderDetail}) => {
   const [savedItems, setSavedItems] = useState([]);
 
   useEffect(() => {
@@ -25,6 +25,7 @@ const CartContainer = () => {
                     imagePath={item.imagePath}
                     price={item.price}
                     quantity={item.quantity}
+                    isOrderDetail={isOrderDetail}
                 />
                 ))
             }

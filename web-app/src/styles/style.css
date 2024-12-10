@@ -10,6 +10,7 @@
   --primary-lts-clr: #000000;
   --base-dk-clr: #f2f2f2;
   --base-dkr-clr: #e5e5e5;
+  --base-dkrr-clr: #d9d9d9;
   --base-lt-clr: #fbfbfb;
   --red-clr: #f03e41;
 }
@@ -20,6 +21,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+
 }
 
 html, body, main {
