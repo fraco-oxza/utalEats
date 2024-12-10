@@ -15,11 +15,11 @@ const store = stores.find((storeImage) => storeImage.storeId == order.storeId);
     <div>
         <div class="store-name">{store?.storeName}</div>
         <div class="total">
-            Total: CLP ${
+            Total: USD ${
                 order.products.reduce(
                     (acc, product) => acc + product.price,
                     0,
-                ) * 980
+                )
             }
         </div>
     </div>
@@ -27,16 +27,15 @@ const store = stores.find((storeImage) => storeImage.storeId == order.storeId);
 
 <style>
     .order-card {
-        background-color: #f5f5f5;
-        border-radius: 0.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 1.5rem;
         display: flex;
         align-items: center;
+        border-bottom: 3px solid #D9D9D9;
     }
 
     .order-card img {
         margin-right: 1rem;
+        border-radius: 20px;
     }
 
     .order-card .store-name {
