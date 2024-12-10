@@ -120,6 +120,88 @@ sequenceDiagram
     deactivate ProxyInverso
 ```
 
+```mermaid
+classDiagram
+    %% Domain Interfaces
+    class IAccount {
+        +id?: number
+        +email: string
+        +passwordHash: string
+    }
+    class IProfile {
+        +id?: number
+        +accountId: number
+        +name: string
+        +phone: string
+        +address: string
+        +city: string
+    }
+    class IAccountRegistrationDTO {
+        +email: string
+        +password: string
+        +name: string
+        +phone: string
+        +address: string
+        +city: string
+    }
+    class ILoginDTO {
+        +email: string
+        +password: string
+    }
+
+    %% Repositories
+    class AccountRepository {
+        <<abstract>>
+        +register(data: IAccountRegistrationDTO): Promise<IAccount>
+        +login(credentials: ILoginDTO): Promise<number | null>
+        +emailExists(email: string): Promise<boolean>
+    }
+    class ProfileRepository {
+        <<abstract>>
+        +getByAccountId(accountId: number): Promise<IProfile | null>
+    }
+    class DrizzleAccountRepository {
+        +register(data: IAccountRegistrationDTO): Promise<IAccount>
+        +login(credentials: ILoginDTO): Promise<number | null>
+        +emailExists(email: string): Promise<boolean>
+    }
+    class DrizzleProfileRepository {
+        +getByAccountId(accountId: number): Promise<IProfile | null>
+    }
+
+    %% Services
+    class AuthService {
+        -accountRepository: AccountRepository
+        -profileRepository: ProfileRepository
+        +register(data: IAccountRegistrationDTO): Promise<IAccount>
+        +login(credentials: ILoginDTO): Promise<number>
+        +getProfile(accountId: number): Promise<IProfile>
+    }
+
+    %% Controllers
+    class AuthController {
+        -app: Express
+        -authService: AuthService
+        +configureMiddlewares(): void
+        +registerRoutes(): void
+        +handleRegister(req: Request, res: Response): Promise<void>
+        +handleLogin(req: Request, res: Response): Promise<void>
+        +handleGetProfile(req: Request, res: Response): Promise<void>
+        +startServer(port?: number): void
+    }
+
+    %% Relationships
+    AccountRepository <|-- DrizzleAccountRepository
+    ProfileRepository <|-- DrizzleProfileRepository
+    AuthService o-- AccountRepository
+    AuthService o-- ProfileRepository
+    AuthController o-- AuthService
+
+    AuthController .. AuthControllerNote
+    AuthService .. AuthServiceNote
+    DrizzleAccountRepository .. DrizzleRepositoryNote
+```
+
 El servicio de Identidad maneja las solicitudes relacionadas con las cuentas y
 perfiles de usuario. El Proxy Inverso dirige las solicitudes que comienzan con
 `/api/account` o `/api/profile` al servicio de Identidad. El servicio de
