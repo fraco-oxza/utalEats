@@ -4,15 +4,19 @@ import "./CartContainer.css";
 
 const CartContainer = ({isOrderDetail}) => {
   const [savedItems, setSavedItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const increaseTotalPrice = (q) => {
+    setTotalPrice(totalPrice + q);
+  } ;
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('savedItems')) || [];
     setSavedItems(items);
+    setTotalPrice(items.reduce((sum, item) => {
+      return sum + item.price * item.quantity;
+      }, 0));
   }, []);
-
-  const totalPrice = savedItems.reduce((sum, item) => {
-    return sum + item.price * item.quantity;
-    }, 0);
 
   return (
     <div className="container">
@@ -26,12 +30,13 @@ const CartContainer = ({isOrderDetail}) => {
                     price={item.price}
                     quantity={item.quantity}
                     isOrderDetail={isOrderDetail}
+                    increaseTotalPrice={increaseTotalPrice}
                 />
                 ))
             }
         </ul>
         <div className='priceText'>
-            <p>Total ${totalPrice}</p>
+            <p>Total ${totalPrice.toFixed(2)}</p>
         </div>
     </div>
   );
