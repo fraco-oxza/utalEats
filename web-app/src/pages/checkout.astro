@@ -33,12 +33,16 @@ if (userIdCookie) {
         <div class="page">
             <div class="orders">
                 <h1>Order details</h1>
-                <CartContainer client:load isOrderDetail={true}/>
+                <CartContainer client:only isOrderDetail={true}/>
             </div>
             <Review orderId={orderId!} storeId={storeId!} client:load />
         </div>
     </main>
     <style>
+        html {
+            overflow-y: hidden;
+        }
+
         main {
             display: flex;
             flex-direction: column;

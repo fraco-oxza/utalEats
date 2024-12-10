@@ -4,15 +4,14 @@ interface Props {
     imagePath: string;
     price: number;
 }
-let { name, imagePath, price } = Astro.props;
-price = Math.ceil(price * 980); //Dolar to CLP
+const { name, imagePath, price } = Astro.props;
 ---
 
 <li>
     <img src={imagePath} />
     <p>{name}</p>
     <div class="price">
-        <p>CLP</p>
+        <p>USD</p>
         <p class="priceText">${price}</p>
     </div>
     <div
