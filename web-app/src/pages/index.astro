@@ -29,7 +29,7 @@ if (userIdCookie) {
     <main>
         <NavBar username={username} city={city} />
         <h1>Categories</h1>
-        <Categories />
+        <Categories city={city}/>
         <h1>Stores</h1>
         <Stores city={city} />
     </main>
@@ -55,8 +55,19 @@ if (userIdCookie) {
             button.style.backgroundColor = "var(--primary-clr)";
             button.style.color = "var(--primary-fnt-clr)";
             selected = button.id;
+			const stores = document.querySelectorAll<HTMLLIElement>("[store-btn]");
+			stores.forEach((store) => {
+				if (store.className != selected && selected != "All") {
+					store.style.display = "none";
+				} else {
+					store.style.display = "flex";
+				}
+			});
         });
     });
+
+	
+
 </script>
 <style>
     main {

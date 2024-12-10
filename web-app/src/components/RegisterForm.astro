@@ -79,13 +79,19 @@ const cities = stores
         <form action="">
             <div class="input">
                 <label for="number">Phone number</label>
-                <input
+                <div class="tel">
+                    <div class="first-numbers">
+                        <p class="num">+569</p>
+                    </div>
+                    <input
                     type="tel"
                     id="number"
                     name="number"
-                    placeholder="+569xxxxxxxx"
+                    placeholder="12345678"
                     pattern="[0-9]*"
                 />
+                </div>
+                
             </div>
             <div class="input">
                 <label for="city">City</label>
@@ -172,6 +178,12 @@ const cities = stores
         padding: 6px 10px;
     }
 
+    input[type=tel] {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        width: 250px;
+    }
+
     select {
         background-color: var(--base-dk-clr);
         border: 1px solid var(--base-dkr-clr);
@@ -243,6 +255,26 @@ const cities = stores
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .tel {
+        display: flex;
+        
+    }
+
+    .first-numbers {
+        display: flex;
+        width: 50px;
+        background-color: var(--base-dk-clr);
+        border: 1px solid var(--base-dkr-clr);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: 6px 10px;
+    }
+
+    .num {
+        color: black;
+        font-size: 12px;
     }
 </style>
 
