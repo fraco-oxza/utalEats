@@ -64,9 +64,10 @@ const categories = storesFiltered
     .carousel-container {
         display: flex;
         align-items: center;
-        width: 100%;
+        width: auto;
         position: relative;
         gap:10px;
+        margin-right: auto;
     }
 
     .categories-wrapper {
@@ -85,6 +86,7 @@ const categories = storesFiltered
         scroll-behavior: smooth;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* Internet Explorer 10+ */
+        justify-content: center;
     }
 
     .categories-list::-webkit-scrollbar {
