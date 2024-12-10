@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Review.css";
 
 const Review = ({ orderId, storeId }) => {
   const [rating, setRating] = useState(0);
@@ -42,10 +43,10 @@ const Review = ({ orderId, storeId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="container">
       <div>
-        <h3>Rate the store</h3>
-        <div>
+        <h3>Rate the store and leave a review</h3>
+        <div className="stars-container">
           {[1, 2, 3, 4, 5].map((star) => (
             <span
               key={star}
@@ -61,14 +62,13 @@ const Review = ({ orderId, storeId }) => {
         </div>
       </div>
       <div>
-        <h3>Leave a review</h3>
         <textarea
           value={comment}
           onChange={handleCommentChange}
           placeholder="Share your experience with this order..."
         ></textarea>
-        <div>
-          <button onClick={maybeLater} type="button" className="maybe-later">
+        <div className="actions">
+          <button onClick={maybeLater} type="button" className="maybe-later secondary">
             Maybe later
           </button>
           <button type="submit" className="send">

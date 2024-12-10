@@ -1,7 +1,8 @@
 import React from 'react';
 import "./ItemCart.css";
 
-const ItemCart = ({name, imagePath, price, quantity}) => {
+
+const ItemCart = ({name, imagePath, price, quantity, isOrderDetail}) => {
     const savedItems = JSON.parse(
         localStorage.getItem("savedItems") || "[]",
     );
@@ -37,6 +38,7 @@ const ItemCart = ({name, imagePath, price, quantity}) => {
                     </div>
                 </div>
             </div>
+            {!isOrderDetail && 
             <div className="right">
                 <svg role="button" onClick={removeItemFromCart} xmlns="http://www.w3.org/2000/svg"  width="24"  height="24" 
                 viewBox="0 0 24 24"  fill="none"  stroke="currentColor" 
@@ -50,7 +52,7 @@ const ItemCart = ({name, imagePath, price, quantity}) => {
                 className="change-item">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-            </div>
+            </div>}
         </li>
     );
 };
