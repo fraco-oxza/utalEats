@@ -22,10 +22,21 @@
   box-sizing: border-box;
 }
 
+html, body, main {
+  position: relative;
+}
+
 body {
-  margin: 0 10%;
   padding-top: 30px;
   background-color: var(--background-clr);
+  position: relative;
+}
+
+main {
+  margin: 80px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 html {

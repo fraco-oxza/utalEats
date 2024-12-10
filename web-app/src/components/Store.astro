@@ -14,7 +14,7 @@ const {storeId, name, category, stars, reviews, imagePath} = Astro.props;
 
 <li>
     <a href=`store?storeId=${storeId}&name=${name}` class="store">
-        <img src={imagePath}></img>
+        <img src={imagePath} onerror="this.src='https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-store.png'"></img>
         <p class="name">{name}</p>
         <p class="category">{category}</p>
         <div class="rating">
@@ -48,6 +48,7 @@ const {storeId, name, category, stars, reviews, imagePath} = Astro.props;
         justify-content: center;
         padding: 30px;
         display: flex;
+        gap: 5px;
         flex-direction: column;
         text-align: center;
         text-decoration: none;
@@ -68,6 +69,15 @@ const {storeId, name, category, stars, reviews, imagePath} = Astro.props;
     .stars {
         display: flex;
         align-items: center;
+        
+        & svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        & p {
+            font-weight: 600;
+        }
     }
 
     .name {

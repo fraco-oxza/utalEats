@@ -15,20 +15,92 @@ const categories = stores
     }, [] as string[]);
 ---
 
-<ul>
-    <Category category="All" />
-    {categories.map((category) => <Category category={category} />)}
-</ul>
+<div class="carousel-container">
+    <button class="nav-arrow left-arrow"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></button>
+    <div class="categories-wrapper">
+        <ul class="categories-list">
+            <Category category="All" />
+            {categories.map((category) => <Category category={category} />)}
+        </ul>
+    </div>
+    <button class="nav-arrow right-arrow"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg></button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const categoriesList = document.querySelector('.categories-list');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+
+        if (categoriesList && leftArrow && rightArrow) {
+            leftArrow.addEventListener('click', () => {
+                categoriesList.scrollBy({
+                    left: -200,
+                    behavior: 'smooth'
+                });
+            });
+
+            rightArrow.addEventListener('click', () => {
+                categoriesList.scrollBy({
+                    left: 200,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    });
+</script>
+
 <style>
-    ul {
+    .carousel-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        gap:10px;
+    }
+
+    .categories-wrapper {
+        flex-grow: 1;
+        overflow: hidden;
+    }
+
+    .categories-list {
         display: flex;
         list-style-type: none;
         padding: 0;
         align-items: center;
-        width: 100%;
         background-color: white;
         overflow-x: scroll;
         gap: 20px;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+    }
+
+    .categories-list::-webkit-scrollbar {
+        display: none; /* WebKit */
+    }
+
+    .nav-arrow {
+        background-color: var(--secondary-clr);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .nav-arrow:hover {
+        opacity: 0.7;
+    }
+
+    .left-arrow {
+        transform: scaleX(-100%);
     }
 </style>
 
