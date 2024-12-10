@@ -39,14 +39,21 @@ img {
 .right {
     display: flex;
     background-color: #D9D9D9;
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 10px;
     gap: 20px;
+    align-items: center;
+
+    & p {
+        font-weight: 500;
+    }
 }
 
 .change-item {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
+    background-color: #FBFBFB;
+    border-radius: 50%;
 }
 
 .change-item:hover {

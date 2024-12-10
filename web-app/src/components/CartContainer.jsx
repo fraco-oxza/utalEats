@@ -29,7 +29,7 @@ const CartContainer = () => {
                 ))
             }
         </ul>
-        <div>
+        <div className='priceText'>
             <p>Total ${totalPrice}</p>
         </div>
     </div>

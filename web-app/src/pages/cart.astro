@@ -36,9 +36,11 @@ if (userIdCookie) {
     <main>
         <NavBar city={city} username={username} />
         <div class="page">
-            <Back url=`/store?storeId=${storeId}&name=${name}` />
-            <div class="your-cart">
+            <div class="header">
                 <h1>Your cart</h1>
+                <Back url=`/store?storeId=${storeId}&name=${name}`/>
+            </div>
+            <div class="your-cart">
                 <CartContainer client:load />
                 <div class="buttons">
                     <button id="clear">Clear</button>
@@ -76,8 +78,21 @@ if (userIdCookie) {
         align-items: center;
     }
 
-    .page {
+    .header {
         display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        & h1 {
+            margin-right: auto;
+        }
+    }
+
+    .page {
+        transform: translateY(-2.5%);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .your-cart {
@@ -111,6 +126,13 @@ if (userIdCookie) {
 
     a:hover {
         opacity: 0.5;
+    }
+
+    .buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 50px;
     }
 </style>
 
