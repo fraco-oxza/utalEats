@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from "express";
 import morgan from "morgan";
 import { OrderService } from "./application-services";
 import { MongoOrderRepository } from "./mongodb-repository";
-import { IOrder, OrderSchema } from "./domain-interfaces";
+import cors from "cors";
 
 export class OrderController {
   private app: Express;
@@ -21,6 +21,7 @@ export class OrderController {
   private configureMiddlewares(): void {
     this.app.use(express.json());
     this.app.use(morgan("dev"));
+    this.app.use(cors());
   }
 
   private registerRoutes(): void {
@@ -30,7 +31,6 @@ export class OrderController {
 
   private async handleCreateOrder(req: Request, res: Response): Promise<void> {
     try {
-      // Omitir orderId ya que será generado en el servicio
       const { orderId, ...orderData } = req.body;
 
       const result = await this.orderService.createOrder(orderData);

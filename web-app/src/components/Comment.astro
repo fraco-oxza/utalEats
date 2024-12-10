@@ -1,0 +1,43 @@
+<div class="comment">
+    <div>
+        <input type="text" placeholder="Share your experience with this order...">
+    </div>
+    <div>
+        <button class="maybe-later">Maybe later</button>
+        <button class="send">Send</button>
+    </div>
+</div>
+<style>
+    .comment {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    input {
+        display: flex;
+        border: 1px solid #D9D9D9;
+        border-radius: 20px;
+        width: 100%;
+        padding: 10px 0 30vh 20px;
+    }
+
+    .maybe-later {
+        background-color: var(--secondary-clr);
+        border: none;
+        border-radius: 20px;
+        padding: 8px 30px;
+        font-size: 20px;
+    }
+
+    .send {
+        background-color: var(--primary-clr);
+        border: none;
+        border-radius: 20px;
+        padding: 8px 30px;
+        color: var(--primary-fnt-clr);
+        font-size: 20px;
+    }
+</style>
