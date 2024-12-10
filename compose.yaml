@@ -1,18 +1,18 @@
 services:
   identity:
-    build: ./identity
+    build: ./services/identity
     restart: always
     develop:
       watch:
         - action: sync
-          path: ./identity
+          path: ./services/identity
           target: /app
           ignore:
             - node_modules/
         - action: rebuild
-          path: ./identity/package.json
+          path: ./services/identity/package.json
         - action: rebuild
-          path: ./identity/Dockerfile
+          path: ./services/identity/Dockerfile
     environment:
       DATABASE_URL: postgres://identity:identity@identity-db:5432/identity
     depends_on:
@@ -37,19 +37,19 @@ services:
       timeout: 10s
 
   stores:
-    build: ./stores
+    build: ./services/stores
     restart: always
     develop:
       watch:
         - action: sync
-          path: ./stores
+          path: ./services/stores
           target: /app
           ignore:
             - node_modules/
         - action: rebuild
-          path: ./stores/package.json
+          path: ./services/stores/package.json
         - action: rebuild
-          path: ./stores/Dockerfile
+          path: ./services/stores/Dockerfile
     environment:
       DATABASE_URL: mongodb://stores:stores@stores-db:27017
     depends_on:
@@ -71,19 +71,19 @@ services:
       timeout: 10s
 
   rating:
-    build: ./rating
+    build: ./services/rating
     restart: always
     develop:
       watch:
         - action: sync
-          path: ./rating
+          path: ./services/rating
           target: /app
           ignore:
             - node_modules/
         - action: rebuild
-          path: ./rating/package.json
+          path: ./services/rating/package.json
         - action: rebuild
-          path: ./rating/Dockerfile
+          path: ./services/rating/Dockerfile
     environment:
       DATABASE_URL: postgres://rating:rating@rating-db:5432/rating
     depends_on:
@@ -108,7 +108,7 @@ services:
       timeout: 10s
 
   reverse-proxy:
-    build: ./reverse-proxy
+    build: ./services/reverse-proxy
     restart: always
     ports:
       - "80:80"
@@ -124,7 +124,7 @@ services:
           target: /etc/nginx/nginx.conf
 
   web-app:
-    build: ./web-app
+    build: ./services/web-app
     restart: always
     depends_on:
       - stores
@@ -132,29 +132,29 @@ services:
     develop:
       watch:
         - action: sync
-          path: ./web-app
+          path: ./services/web-app
           target: /app
           ignore:
             - node_modules/
         - action: rebuild
-          path: ./web-app/package.json
+          path: ./services/web-app/package.json
         - action: rebuild
-          path: ./web-app/Dockerfile
+          path: ./services/web-app/Dockerfile
 
   order:
-    build: ./order
+    build: ./services/order
     restart: always
     develop:
       watch:
         - action: sync
-          path: ./order
+          path: ./services/order
           target: /app
           ignore:
             - node_modules/
         - action: rebuild
-          path: ./order/package.json
+          path: ./services/order/package.json
         - action: rebuild
-          path: ./order/Dockerfile
+          path: ./services/order/Dockerfile
     environment:
       DATABASE_URL: mongodb://order:order@order-db:27017
     depends_on:

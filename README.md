@@ -2,6 +2,18 @@
 
 This project implements a simplified food delivery application, "Utal Eats," using a client-server architecture based on Service-Oriented Architecture (SOA). The system is designed as a distributed application consisting of four independent microservices: Identity, Stores, Orders, and Ratings. A web client and mobile clients (Android/iOS) will interact with these services.
 
+## Dependencies
+
+You only need Docker.
+
+## Running
+
+To run the project execute:
+
+```bash
+docker compose -f compose.yaml -f production.yml up
+```
+
 ## Project Structure
 
 The project is divided into several components:
