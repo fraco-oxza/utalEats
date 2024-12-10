@@ -2,11 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
 import CartContainer from "../components/CartContainer";
-import Stars from "../components/Stars.astro";
-import Comment from "../components/Comment.astro";
+import Review from "../components/Review.jsx";
 
 let username;
 let city: string;
+
+const storeId = Astro.url.searchParams.get("storeId");
+const orderId = Astro.url.searchParams.get("orderId");
 
 const userIdCookie = Astro.cookies.get("user-id");
 if (userIdCookie) {
@@ -31,43 +33,34 @@ if (userIdCookie) {
         <div class="page">
             <div class="orders">
                 <h1>Order details</h1>
-                <CartContainer client:load></CartContainer>
+                <CartContainer client:load />
             </div>
-            <div class="rating">
-                <div>
-                    <h1>Rate the store</h1>
-                    <Stars></Stars>
-                </div>
-                <div class="review">
-                    <h1>Leave a review</h1>
-                    <Comment></Comment>
-                </div>
-            </div>
+            <Review orderId={orderId!} storeId={storeId!} client:load />
         </div>
     </main>
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .rating {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .review {
+            width: 100%;
+        }
+    </style>
 </Layout>
-<style>
-    main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .page {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-    }
-
-    .rating {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .review {
-        width: 100%;
-    }
-</style>
