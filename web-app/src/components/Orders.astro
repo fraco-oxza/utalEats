@@ -1,0 +1,23 @@
+---
+import type { Order as IOrder } from "../lib/models";
+import Order from "./Order.astro";
+interface Props {
+    orders: IOrder[];
+}
+const { orders } = Astro.props;
+---
+
+<div class="orders-container">
+    {orders.map((order) => <Order order={order} />)}
+</div>
+
+<style>
+    .orders-container {
+        display: grid;
+        grid-template-columns: 1;
+        gap: 1.5rem;
+        padding: 2rem;
+        width: 600px;
+        margin: 0 auto;
+    }
+</style>
