@@ -27,6 +27,7 @@ const ordersResponse = await fetch(
     "http://order:3000/order/?accountId=" + userIdCookie.value,
 );
 const orders: Order[] = await ordersResponse.json();
+console.log(orders);
 ---
 
 <Layout title="UtalEats">
