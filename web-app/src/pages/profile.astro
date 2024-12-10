@@ -27,13 +27,15 @@ const ordersResponse = await fetch(
     "http://order:3000/order/?accountId=" + userIdCookie.value,
 );
 const orders: Order[] = await ordersResponse.json();
+console.log(orders);
 ---
 
 <Layout title="UtalEats">
     <main>
         <NavBar username={username} city={city} />
+        <h1>My orders</h1>
+        <Orders orders={orders}/>
         <button id="logout">Log out</button>
-        <Orders orders={orders} />
     </main>
 </Layout>
 <script>
@@ -47,11 +49,11 @@ const orders: Order[] = await ordersResponse.json();
     main {
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 
     button {
-        float: right;
-        display: block;
+        display: flex;
         text-align: center;
         padding: 1% 2%;
         text-decoration: none;
@@ -59,6 +61,8 @@ const orders: Order[] = await ordersResponse.json();
         border-radius: 30px;
         border-style: hidden;
         width: fit-content;
+        font-size: 20px;
+        margin-left: auto;
     }
 
     button:hover {

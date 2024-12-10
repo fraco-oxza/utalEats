@@ -19,6 +19,7 @@
     margin-left: auto;
     padding: 15px 0;
     font-size: 18px;
+
     & p {
         font-weight: 500;
     }
