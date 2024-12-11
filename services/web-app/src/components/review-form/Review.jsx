@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Review.css";
 
 const Review = ({ orderId, storeId }) => {
@@ -68,7 +68,11 @@ const Review = ({ orderId, storeId }) => {
           placeholder="Share your experience with this order..."
         ></textarea>
         <div className="actions">
-          <button onClick={maybeLater} type="button" className="maybe-later secondary">
+          <button
+            onClick={maybeLater}
+            type="button"
+            className="maybe-later secondary"
+          >
             Maybe later
           </button>
           <button type="submit" className="send">
