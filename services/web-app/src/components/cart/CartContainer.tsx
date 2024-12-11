@@ -37,9 +37,7 @@ const CartContainer = ({ isOrderDetail }: { isOrderDetail: boolean }) => {
   };
 
   useEffect(() => {
-    const items: Item[] = JSON.parse(
-      localStorage.getItem("savedItems") ?? "[]"
-    );
+    const items: Item[] = JSON.parse(localStorage.getItem("savedItems")) || [];
     setSavedItems(items);
     setTotalPrice(
       items.reduce((sum, item) => {
