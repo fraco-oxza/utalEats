@@ -122,14 +122,13 @@ import RegisterForm from "../components/RegisterForm.astro";
 
     form2?.addEventListener("submit", (e) => {
         e.preventDefault();
-
+        error2.style.setProperty("color", "var(--primary-clr)");
         if (
             number?.value == "" ||
             city?.value == "none" ||
             address?.value == ""
         ) {
             error2.innerText = "Ensure you input a value in all fields!";
-            error2.style.setProperty("color", "var(--primary-clr)");
         } else if (number?.value.length < 8) {
             error.innerText = "Phone number must be at least 8 characters";
         } else if (address?.value.length < 8) {
