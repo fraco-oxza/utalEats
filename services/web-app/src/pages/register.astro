@@ -130,9 +130,9 @@ import RegisterForm from "../components/RegisterForm.astro";
         ) {
             error2.innerText = "Ensure you input a value in all fields!";
         } else if (number?.value.length < 8) {
-            error.innerText = "Phone number must be at least 8 characters";
+            error2.innerText = "Phone number must be at least 8 characters";
         } else if (address?.value.length < 8) {
-            error.innerText = "Street must be at least 8 characters";
+            error2.innerText = "Street must be at least 8 characters";
         } else {
             error2.style.setProperty("color", "var(--base-clr)");
             numberValue = number?.value;
