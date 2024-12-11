@@ -77,9 +77,10 @@ import RegisterForm from "../components/RegisterForm.astro";
     let addressValue;
 
     email.oninvalid = function () {
-        error.innerText = "Invalid email address!";
+        error.innerText = "Please enter a valid email";
         error2.style.setProperty("color", "var(--primary-clr)");
     };
+
     number.oninvalid = function () {
         error2.innerText = "Invalid phone number!";
         error2.style.setProperty("color", "var(--primary-clr)");
@@ -88,6 +89,7 @@ import RegisterForm from "../components/RegisterForm.astro";
     form1?.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        error.style.setProperty("color", "var(--primary-clr)");
         if (
             email?.value == "" ||
             password?.value == "" ||
@@ -95,10 +97,18 @@ import RegisterForm from "../components/RegisterForm.astro";
             lastName?.value == ""
         ) {
             error.innerText = "Ensure you input a value in all fields!";
-            error.style.setProperty("color", "var(--primary-clr)");
+        } else if (password?.value.length < 6) {
+            error.innerText = "Password must be at least 6 characters";
+        } else if (!password?.value.match('[0-9]')) {
+            error.innerText = "Password must contain at least one number";
+        } else if (!password?.value.match('[^a-zA-Z0-9]')) {
+            error.innerText = "Password must contain at least one special character";
         } else if (password2?.value != password?.value) {
-            error.innerText = "Ensure both passwords are the same!";
-            error.style.setProperty("color", "var(--primary-clr)");
+            error.innerText = "Passwords do not match";
+        } else if (firstName?.value.length < 4) {
+            error.innerText = "First name must be at least 4 characters";
+        } else if (lastName?.value.length < 4) {
+            error.innerText = "Last name must be at least 4 characters";
         } else {
             error.style.setProperty("color", "var(--base-clr)");
             emailValue = email?.value;
@@ -120,6 +130,10 @@ import RegisterForm from "../components/RegisterForm.astro";
         ) {
             error2.innerText = "Ensure you input a value in all fields!";
             error2.style.setProperty("color", "var(--primary-clr)");
+        } else if (number?.value.length < 8) {
+            error.innerText = "Phone number must be at least 8 characters";
+        } else if (address?.value.length < 8) {
+            error.innerText = "Street must be at least 8 characters";
         } else {
             error2.style.setProperty("color", "var(--base-clr)");
             numberValue = number?.value;
